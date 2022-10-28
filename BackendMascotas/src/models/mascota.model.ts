@@ -19,14 +19,15 @@ export class Mascota extends Entity {
 
   @property({
     type: 'string',
-  })
-  foto?: string;
-
-  @property({
-    type: 'date',
     required: true,
   })
-  nacimiento: string;
+  foto: string;
+
+  @property({
+    type: 'string',
+    required: true,
+  })
+  estado: string;
 
   @property({
     type: 'string',
@@ -38,31 +39,7 @@ export class Mascota extends Entity {
     type: 'string',
     required: true,
   })
-  raza: string;
-
-  @property({
-    type: 'string',
-    required: true,
-  })
-  sexo: string;
-
-  @property({
-    type: 'string',
-    required: true,
-  })
-  estadoAfiliacion: string;
-
-  @property({
-    type: 'date',
-    required: true,
-  })
-  fechaAfiliacion: string;
-
-  @property({
-    type: 'string',
-    required: true,
-  })
-  comentarioAfiliacion: string;
+  comentario: string;
 
   @belongsTo(() => Usuario)
   usuarioId: string;

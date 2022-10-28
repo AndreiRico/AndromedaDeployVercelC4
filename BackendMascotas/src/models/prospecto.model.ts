@@ -1,7 +1,7 @@
 import {Entity, model, property} from '@loopback/repository';
 
 @model()
-export class ProductoServicio extends Entity {
+export class Prospecto extends Entity {
   @property({
     type: 'string',
     id: true,
@@ -19,33 +19,34 @@ export class ProductoServicio extends Entity {
     type: 'string',
     required: true,
   })
-  descripcion: string;
+  apellido: string;
 
   @property({
     type: 'string',
     required: true,
   })
-  categoria: string;
+  correo: string;
 
   @property({
     type: 'string',
-  })
-  proveedor?: string;
-
-  @property({
-    type: 'number',
     required: true,
   })
-  valor: number;
+  celular: string;
+
+  @property({
+    type: 'string',
+    required: true,
+  })
+  comentario: string;
 
 
-  constructor(data?: Partial<ProductoServicio>) {
+  constructor(data?: Partial<Prospecto>) {
     super(data);
   }
 }
 
-export interface ProductoServicioRelations {
+export interface ProspectoRelations {
   // describe navigational properties here
 }
 
-export type ProductoServicioWithRelations = ProductoServicio & ProductoServicioRelations;
+export type ProspectoWithRelations = Prospecto & ProspectoRelations;

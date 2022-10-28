@@ -12,7 +12,7 @@ import {MySequence} from './sequence';
 
 export {ApplicationConfig};
 
-export class AndromedawebApplication extends BootMixin(
+export class MascotasApplication extends BootMixin(
   ServiceMixin(RepositoryMixin(RestApplication)),
 ) {
   constructor(options: ApplicationConfig = {}) {

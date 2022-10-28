@@ -1,9 +1,9 @@
-import {ApplicationConfig, AndromedawebApplication} from './application';
+import {ApplicationConfig, MascotasApplication} from './application';
 
 export * from './application';
 
 export async function main(options: ApplicationConfig = {}) {
-  const app = new AndromedawebApplication(options);
+  const app = new MascotasApplication(options);
   await app.boot();
   await app.start();
 

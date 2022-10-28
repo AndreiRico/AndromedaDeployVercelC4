@@ -14,19 +14,19 @@ export class Usuario extends Entity {
     type: 'string',
     required: true,
   })
-  nombres: string;
+  cedula: string;
 
   @property({
     type: 'string',
     required: true,
   })
-  documento: string;
+  nombre: string;
 
   @property({
     type: 'string',
     required: true,
   })
-  direccion: string;
+  apellido: string;
 
   @property({
     type: 'string',
@@ -44,7 +44,7 @@ export class Usuario extends Entity {
     type: 'string',
     required: true,
   })
-  clave: string;
+  contrasena: string;
 
   @property({
     type: 'string',

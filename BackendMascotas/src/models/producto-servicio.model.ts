@@ -1,14 +1,19 @@
-import {Entity, model, property, hasMany} from '@loopback/repository';
-import {Mascota} from './mascota.model';
+import {Entity, model, property} from '@loopback/repository';
 
 @model()
-export class Plan extends Entity {
+export class ProductoServicio extends Entity {
   @property({
     type: 'string',
     id: true,
     generated: true,
   })
   id?: string;
+
+  @property({
+    type: 'string',
+    required: true,
+  })
+  tipo: string;
 
   @property({
     type: 'string',
@@ -26,18 +31,16 @@ export class Plan extends Entity {
     type: 'number',
     required: true,
   })
-  costo: number;
+  precio: number;
 
-  @hasMany(() => Mascota)
-  mascotas: Mascota[];
 
-  constructor(data?: Partial<Plan>) {
+  constructor(data?: Partial<ProductoServicio>) {
     super(data);
   }
 }
 
-export interface PlanRelations {
+export interface ProductoServicioRelations {
   // describe navigational properties here
 }
 
-export type PlanWithRelations = Plan & PlanRelations;
+export type ProductoServicioWithRelations = ProductoServicio & ProductoServicioRelations;
