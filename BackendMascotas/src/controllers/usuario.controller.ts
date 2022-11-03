@@ -83,15 +83,25 @@ export class UsuarioController {
     usuario.contrasena = contrasenaCifrada;
     let u = await this.usuarioRepository.create(usuario);
 
-    //notificar usuario
+    //notificar usuario por correo
     let destino = usuario.correo;
     let asunto = 'Datos de registro de la plataforma';
-    let contenido = `Hola ${usuario.nombre} bienvenido a mascota feliz, su usuario es ${usuario.correo} y su contraseña es ${contrasena};`
+    let contenido = `Hola ${usuario.nombre} ${usuario.apellido} bienvenido a mascota feliz, su usuario es ${usuario.correo} y su contraseña es ${contrasena};`
     fetch(`http://127.0.0.1:5000/email?correo_destino=${destino}&asunto=${asunto}&contenido=${contenido}`)
       .then((data:any)=>{
         console.log(data);
       })
-      return u;
+      //return u; 
+    
+    // notificar ususario por sms
+    let destino_sms = usuario.telefono;
+    let contenido_sms = `Hola ${usuario.nombre}${usuario.apellido} bienvenido a mascota feliz, su usuario es ${usuario.correo} y su contraseña es ${contrasena};`
+    fetch(`http://127.0.0.1:5000/mensajetxt?celular_destino=${destino_sms}&contenido=${contenido_sms}`)
+      .then((data:any)=>{
+        console.log(data);
+      })
+      return u; 
+    
   }
 
   @get('/usuarios/count')
