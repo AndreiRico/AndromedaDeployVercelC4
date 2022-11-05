@@ -35,6 +35,8 @@ export class UsuarioController {
     public servicioAutenticacion: AutenticacionService
   ) {}
 
+  @authenticate('admin',"client","assessor")
+
   @post('/identificarUsuario',{
     responses:{
       '200': {
@@ -42,8 +44,6 @@ export class UsuarioController {
       }
     }
   })
-
-  //@authenticate.skip()
   async identificarUsuario(
     @requestBody() credenciales: Credenciales
   ){
@@ -66,8 +66,8 @@ export class UsuarioController {
 
   }
 
-  //@authenticate('admin')
-  @authenticate.skip()
+  @authenticate("admin","assessor","client")
+
   @post('/usuarios')
   @response(200, {
     description: 'Usuario model instance',
@@ -112,6 +112,8 @@ export class UsuarioController {
     
   }
 
+  @authenticate("admin","assessor")
+
   @get('/usuarios/count')
   @response(200, {
     description: 'Usuario model count',
@@ -122,6 +124,8 @@ export class UsuarioController {
   ): Promise<Count> {
     return this.usuarioRepository.count(where);
   }
+
+  @authenticate("assessor")
 
   @get('/usuarios')
   @response(200, {
@@ -160,6 +164,8 @@ export class UsuarioController {
     return this.usuarioRepository.updateAll(usuario, where);
   }
 
+  @authenticate("assessor")
+
   @get('/usuarios/{id}')
   @response(200, {
     description: 'Usuario model instance',
@@ -175,6 +181,8 @@ export class UsuarioController {
   ): Promise<Usuario> {
     return this.usuarioRepository.findById(id, filter);
   }
+
+  @authenticate.skip()
 
   @patch('/usuarios/{id}')
   @response(204, {
@@ -193,6 +201,8 @@ export class UsuarioController {
   ): Promise<void> {
     await this.usuarioRepository.updateById(id, usuario);
   }
+
+  @authenticate.skip()
 
   @put('/usuarios/{id}')
   @response(204, {

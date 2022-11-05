@@ -1,3 +1,4 @@
+import { authenticate } from '@loopback/authentication';
 import {
   Count,
   CountSchema,
@@ -20,11 +21,15 @@ import {
 import {Prospecto} from '../models';
 import {ProspectoRepository} from '../repositories';
 
+//@authenticate("admin","assessor")
+
 export class ProspectoController {
   constructor(
     @repository(ProspectoRepository)
     public prospectoRepository : ProspectoRepository,
   ) {}
+
+  @authenticate('client')
 
   @post('/prospectos')
   @response(200, {
@@ -111,6 +116,8 @@ export class ProspectoController {
     return this.prospectoRepository.findById(id, filter);
   }
 
+  @authenticate.skip()
+
   @patch('/prospectos/{id}')
   @response(204, {
     description: 'Prospecto PATCH success',
@@ -128,6 +135,8 @@ export class ProspectoController {
   ): Promise<void> {
     await this.prospectoRepository.updateById(id, prospecto);
   }
+
+  @authenticate.skip()
 
   @put('/prospectos/{id}')
   @response(204, {

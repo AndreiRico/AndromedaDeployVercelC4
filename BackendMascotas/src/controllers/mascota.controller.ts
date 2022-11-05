@@ -1,3 +1,4 @@
+import { authenticate } from '@loopback/authentication';
 import {
   Count,
   CountSchema,
@@ -20,11 +21,15 @@ import {
 import {Mascota} from '../models';
 import {MascotaRepository} from '../repositories';
 
+@authenticate("admin")
+
 export class MascotaController {
   constructor(
     @repository(MascotaRepository)
     public mascotaRepository : MascotaRepository,
   ) {}
+
+  @authenticate("assessor")
 
   @post('/mascotas')
   @response(200, {
@@ -47,6 +52,8 @@ export class MascotaController {
     return this.mascotaRepository.create(mascota);
   }
 
+  @authenticate("assessor")
+
   @get('/mascotas/count')
   @response(200, {
     description: 'Mascota model count',
@@ -57,6 +64,8 @@ export class MascotaController {
   ): Promise<Count> {
     return this.mascotaRepository.count(where);
   }
+
+  @authenticate("assessor")
 
   @get('/mascotas')
   @response(200, {
@@ -75,6 +84,8 @@ export class MascotaController {
   ): Promise<Mascota[]> {
     return this.mascotaRepository.find(filter);
   }
+
+  @authenticate("assessor")
 
   @patch('/mascotas')
   @response(200, {
@@ -95,6 +106,8 @@ export class MascotaController {
     return this.mascotaRepository.updateAll(mascota, where);
   }
 
+  @authenticate("assessor")
+
   @get('/mascotas/{id}')
   @response(200, {
     description: 'Mascota model instance',
@@ -110,6 +123,8 @@ export class MascotaController {
   ): Promise<Mascota> {
     return this.mascotaRepository.findById(id, filter);
   }
+
+  @authenticate.skip()
 
   @patch('/mascotas/{id}')
   @response(204, {
@@ -129,6 +144,8 @@ export class MascotaController {
     await this.mascotaRepository.updateById(id, mascota);
   }
 
+  @authenticate.skip()
+
   @put('/mascotas/{id}')
   @response(204, {
     description: 'Mascota PUT success',
@@ -139,6 +156,8 @@ export class MascotaController {
   ): Promise<void> {
     await this.mascotaRepository.replaceById(id, mascota);
   }
+
+  @authenticate("assessor")
 
   @del('/mascotas/{id}')
   @response(204, {

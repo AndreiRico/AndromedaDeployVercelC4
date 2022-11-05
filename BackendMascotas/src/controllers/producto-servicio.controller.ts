@@ -1,3 +1,4 @@
+import { authenticate } from '@loopback/authentication';
 import {
   Count,
   CountSchema,
@@ -20,11 +21,14 @@ import {
 import {ProductoServicio} from '../models';
 import {ProductoServicioRepository} from '../repositories';
 
+@authenticate('admin')
+
 export class ProductoServicioController {
   constructor(
     @repository(ProductoServicioRepository)
     public productoServicioRepository : ProductoServicioRepository,
   ) {}
+
 
   @post('/producto-servicios')
   @response(200, {
@@ -57,6 +61,8 @@ export class ProductoServicioController {
   ): Promise<Count> {
     return this.productoServicioRepository.count(where);
   }
+
+  @authenticate('assessor')
 
   @get('/producto-servicios')
   @response(200, {
@@ -95,6 +101,8 @@ export class ProductoServicioController {
     return this.productoServicioRepository.updateAll(productoServicio, where);
   }
 
+  @authenticate('assessor')
+
   @get('/producto-servicios/{id}')
   @response(200, {
     description: 'ProductoServicio model instance',
@@ -110,6 +118,8 @@ export class ProductoServicioController {
   ): Promise<ProductoServicio> {
     return this.productoServicioRepository.findById(id, filter);
   }
+
+  @authenticate.skip()
 
   @patch('/producto-servicios/{id}')
   @response(204, {
@@ -128,6 +138,8 @@ export class ProductoServicioController {
   ): Promise<void> {
     await this.productoServicioRepository.updateById(id, productoServicio);
   }
+
+  @authenticate.skip()
 
   @put('/producto-servicios/{id}')
   @response(204, {
