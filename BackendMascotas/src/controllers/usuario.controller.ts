@@ -1,3 +1,4 @@
+import { authenticate } from '@loopback/authentication';
 import { service } from '@loopback/core';
 import {
   Count,
@@ -24,6 +25,8 @@ import {UsuarioRepository} from '../repositories';
 import { AutenticacionService } from '../services';
 const fetch = require('node-fetch');
 
+//@authenticate('admin')
+
 export class UsuarioController {
   constructor(
     @repository(UsuarioRepository)
@@ -39,6 +42,8 @@ export class UsuarioController {
       }
     }
   })
+
+  //@authenticate.skip()
   async identificarUsuario(
     @requestBody() credenciales: Credenciales
   ){
@@ -49,7 +54,8 @@ export class UsuarioController {
         datos:{
           nombre: u.nombre,
           correo: u.correo,
-          id: u.id
+          id: u.id,
+          rol: u.rol
           //agregar atributos de los usaurios
         },
         tk: token
@@ -60,6 +66,8 @@ export class UsuarioController {
 
   }
 
+  //@authenticate('admin')
+  @authenticate.skip()
   @post('/usuarios')
   @response(200, {
     description: 'Usuario model instance',
