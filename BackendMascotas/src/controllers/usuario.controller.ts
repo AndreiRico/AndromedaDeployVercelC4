@@ -25,8 +25,6 @@ import {UsuarioRepository} from '../repositories';
 import { AutenticacionService } from '../services';
 const fetch = require('node-fetch');
 
-//@authenticate('admin')
-
 export class UsuarioController {
   constructor(
     @repository(UsuarioRepository)
@@ -35,7 +33,7 @@ export class UsuarioController {
     public servicioAutenticacion: AutenticacionService
   ) {}
 
-  @authenticate('admin',"client","assessor")
+    //---------------- Acceso Publico: Identificar Usuario --------------------
 
   @post('/identificarUsuario',{
     responses:{
@@ -65,6 +63,8 @@ export class UsuarioController {
     }
 
   }
+    
+  //--------------- Crear Usuarios ---------------------------
 
   @authenticate("admin","assessor","client")
 
@@ -112,6 +112,8 @@ export class UsuarioController {
     
   }
 
+  //----------------- Mostrar Cantidad de Usuarios -----------------------
+
   @authenticate("admin","assessor")
 
   @get('/usuarios/count')
@@ -125,7 +127,9 @@ export class UsuarioController {
     return this.usuarioRepository.count(where);
   }
 
-  @authenticate("assessor")
+  //------------------ Mostrar Todos los Usuarios --------------------------
+
+  @authenticate("admin","assessor")
 
   @get('/usuarios')
   @response(200, {
@@ -144,6 +148,10 @@ export class UsuarioController {
   ): Promise<Usuario[]> {
     return this.usuarioRepository.find(filter);
   }
+
+  //------------------- Actualizar Usuarios ---------------------------
+
+  @authenticate("admin","assessor")
 
   @patch('/usuarios')
   @response(200, {
@@ -164,7 +172,9 @@ export class UsuarioController {
     return this.usuarioRepository.updateAll(usuario, where);
   }
 
-  @authenticate("assessor")
+  //-------------------- Mostrar el Usuario de ese ID --------------------
+
+  @authenticate("admin","assessor")
 
   @get('/usuarios/{id}')
   @response(200, {
@@ -182,7 +192,9 @@ export class UsuarioController {
     return this.usuarioRepository.findById(id, filter);
   }
 
-  @authenticate.skip()
+  //--------------- Actualizar solo los datos especificados, de ese {id} de Usuario -------------------
+
+  @authenticate("admin","assessor")
 
   @patch('/usuarios/{id}')
   @response(204, {
@@ -202,7 +214,9 @@ export class UsuarioController {
     await this.usuarioRepository.updateById(id, usuario);
   }
 
-  @authenticate.skip()
+  //----- Actualizar reemplazando los datos especificados, de ese {id}} de Usuario. Los datos no especificados se pierden ------
+
+  @authenticate("admin","assessor")
 
   @put('/usuarios/{id}')
   @response(204, {
@@ -214,6 +228,10 @@ export class UsuarioController {
   ): Promise<void> {
     await this.usuarioRepository.replaceById(id, usuario);
   }
+
+  //--------------- Eliminar Indicando el ID del Usuario -------------------
+
+  @authenticate("admin","assessor")
 
   @del('/usuarios/{id}')
   @response(204, {
