@@ -1,3 +1,4 @@
+import { authenticate } from '@loopback/authentication';
 import {
   Count,
   CountSchema,
@@ -26,6 +27,9 @@ export class UsuarioMascotaController {
     @repository(UsuarioRepository) protected usuarioRepository: UsuarioRepository,
   ) { }
 
+  //--------------------------------------------------------
+  @authenticate("assessor", "client", "admin")
+
   @get('/usuarios/{id}/mascotas', {
     responses: {
       '200': {
@@ -44,6 +48,9 @@ export class UsuarioMascotaController {
   ): Promise<Mascota[]> {
     return this.usuarioRepository.mascotas(id).find(filter);
   }
+  
+  //--------------------------------------------------------
+  @authenticate("assessor", "client", "admin")
 
   @post('/usuarios/{id}/mascotas', {
     responses: {
@@ -70,6 +77,9 @@ export class UsuarioMascotaController {
     return this.usuarioRepository.mascotas(id).create(mascota);
   }
 
+  //--------------------------------------------------------
+  @authenticate("assessor", "client", "admin")
+
   @patch('/usuarios/{id}/mascotas', {
     responses: {
       '200': {
@@ -92,6 +102,9 @@ export class UsuarioMascotaController {
   ): Promise<Count> {
     return this.usuarioRepository.mascotas(id).patch(mascota, where);
   }
+
+  //--------------------------------------------------------
+  @authenticate("assessor", "admin")
 
   @del('/usuarios/{id}/mascotas', {
     responses: {

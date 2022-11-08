@@ -21,7 +21,6 @@ import {
 import {Mascota} from '../models';
 import {MascotaRepository} from '../repositories';
 
-@authenticate("admin")
 
 export class MascotaController {
   constructor(
@@ -29,7 +28,8 @@ export class MascotaController {
     public mascotaRepository : MascotaRepository,
   ) {}
 
-  @authenticate("assessor")
+  //--------------------------------------------------------
+  @authenticate("assessor", "client", "admin")
 
   @post('/mascotas')
   @response(200, {
@@ -52,7 +52,8 @@ export class MascotaController {
     return this.mascotaRepository.create(mascota);
   }
 
-  @authenticate("assessor")
+  //--------------------------------------------------------
+  @authenticate("assessor", "client", "admin")
 
   @get('/mascotas/count')
   @response(200, {
@@ -65,7 +66,8 @@ export class MascotaController {
     return this.mascotaRepository.count(where);
   }
 
-  @authenticate("assessor")
+  //--------------------------------------------------------
+  @authenticate("assessor", "client", "admin")
 
   @get('/mascotas')
   @response(200, {
@@ -85,7 +87,8 @@ export class MascotaController {
     return this.mascotaRepository.find(filter);
   }
 
-  @authenticate("assessor")
+  //--------------------------------------------------------
+  @authenticate("assessor", "client", "admin")
 
   @patch('/mascotas')
   @response(200, {
@@ -106,7 +109,8 @@ export class MascotaController {
     return this.mascotaRepository.updateAll(mascota, where);
   }
 
-  @authenticate("assessor")
+  //--------------------------------------------------------
+  @authenticate("assessor", "client", "admin")
 
   @get('/mascotas/{id}')
   @response(200, {
@@ -124,7 +128,8 @@ export class MascotaController {
     return this.mascotaRepository.findById(id, filter);
   }
 
-  @authenticate.skip()
+  //--------------------------------------------------------
+  @authenticate("assessor", "client", "admin")
 
   @patch('/mascotas/{id}')
   @response(204, {
@@ -144,7 +149,8 @@ export class MascotaController {
     await this.mascotaRepository.updateById(id, mascota);
   }
 
-  @authenticate.skip()
+  //--------------------------------------------------------
+  @authenticate("admin")
 
   @put('/mascotas/{id}')
   @response(204, {
@@ -157,7 +163,8 @@ export class MascotaController {
     await this.mascotaRepository.replaceById(id, mascota);
   }
 
-  @authenticate("assessor")
+  //--------------------------------------------------------
+  @authenticate("assessor", "admin")
 
   @del('/mascotas/{id}')
   @response(204, {

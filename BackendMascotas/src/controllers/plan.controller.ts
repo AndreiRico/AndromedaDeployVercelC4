@@ -21,13 +21,15 @@ import {
 import {Plan} from '../models';
 import {PlanRepository} from '../repositories';
 
-@authenticate("admin")
 
 export class PlanController {
   constructor(
     @repository(PlanRepository)
     public planRepository : PlanRepository,
   ) {}
+
+  //--------------------------------------------------------
+@authenticate("admin")
 
   @post('/plans')
   @response(200, {
@@ -79,6 +81,9 @@ export class PlanController {
     return this.planRepository.find(filter);
   }
 
+//--------------------------------------------------------
+@authenticate("admin")
+
   @patch('/plans')
   @response(200, {
     description: 'Plan PATCH success count',
@@ -114,6 +119,9 @@ export class PlanController {
     return this.planRepository.findById(id, filter);
   }
 
+//--------------------------------------------------------
+@authenticate("admin")
+
   @patch('/plans/{id}')
   @response(204, {
     description: 'Plan PATCH success',
@@ -132,6 +140,9 @@ export class PlanController {
     await this.planRepository.updateById(id, plan);
   }
 
+//--------------------------------------------------------
+@authenticate("admin")
+
   @put('/plans/{id}')
   @response(204, {
     description: 'Plan PUT success',
@@ -142,6 +153,9 @@ export class PlanController {
   ): Promise<void> {
     await this.planRepository.replaceById(id, plan);
   }
+
+//--------------------------------------------------------
+@authenticate("admin")
 
   @del('/plans/{id}')
   @response(204, {

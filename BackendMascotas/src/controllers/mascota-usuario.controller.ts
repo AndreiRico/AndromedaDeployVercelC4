@@ -1,3 +1,4 @@
+import { authenticate } from '@loopback/authentication';
 import {
   repository,
 } from '@loopback/repository';
@@ -18,6 +19,9 @@ export class MascotaUsuarioController {
     public mascotaRepository: MascotaRepository,
   ) { }
 
+    //--------------------------------------------------------
+    @authenticate("assessor", "client", "admin")
+    
   @get('/mascotas/{id}/usuario', {
     responses: {
       '200': {

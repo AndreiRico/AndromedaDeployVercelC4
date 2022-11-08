@@ -214,7 +214,7 @@ export class UsuarioController {
     await this.usuarioRepository.updateById(id, usuario);
   }
 
-  //----- Actualizar reemplazando los datos especificados, de ese {id}} de Usuario. Los datos no especificados se pierden ------
+  //----- Actualizar reemplazando los datos especificados, de ese {id}} de Usuario. obliga a especificar todos los atributos------
 
   @authenticate("admin","assessor")
 

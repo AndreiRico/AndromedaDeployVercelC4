@@ -1,3 +1,4 @@
+import { authenticate } from '@loopback/authentication';
 import {
   Count,
   CountSchema,
@@ -19,12 +20,16 @@ import {
   Plan,
   Mascota,
 } from '../models';
-import {PlanRepository} from '../repositories';
+import { PlanRepository } from '../repositories';
 
 export class PlanMascotaController {
   constructor(
     @repository(PlanRepository) protected planRepository: PlanRepository,
   ) { }
+
+  // Muestra las mascotas que contiene el plan
+  //--------------------------------------------------------
+  @authenticate("assessor", "admin")
 
   @get('/plans/{id}/mascotas', {
     responses: {
@@ -32,7 +37,7 @@ export class PlanMascotaController {
         description: 'Array of Plan has many Mascota',
         content: {
           'application/json': {
-            schema: {type: 'array', items: getModelSchemaRef(Mascota)},
+            schema: { type: 'array', items: getModelSchemaRef(Mascota) },
           },
         },
       },
@@ -45,11 +50,14 @@ export class PlanMascotaController {
     return this.planRepository.mascotas(id).find(filter);
   }
 
+  //--------------------------------------------------------
+  @authenticate("assessor", "client", "admin")
+
   @post('/plans/{id}/mascotas', {
     responses: {
       '200': {
         description: 'Plan model instance',
-        content: {'application/json': {schema: getModelSchemaRef(Mascota)}},
+        content: { 'application/json': { schema: getModelSchemaRef(Mascota) } },
       },
     },
   })
@@ -70,11 +78,14 @@ export class PlanMascotaController {
     return this.planRepository.mascotas(id).create(mascota);
   }
 
+  //--------------------------------------------------------
+  @authenticate("assessor", "admin")
+
   @patch('/plans/{id}/mascotas', {
     responses: {
       '200': {
         description: 'Plan.Mascota PATCH success count',
-        content: {'application/json': {schema: CountSchema}},
+        content: { 'application/json': { schema: CountSchema } },
       },
     },
   })
@@ -83,7 +94,7 @@ export class PlanMascotaController {
     @requestBody({
       content: {
         'application/json': {
-          schema: getModelSchemaRef(Mascota, {partial: true}),
+          schema: getModelSchemaRef(Mascota, { partial: true }),
         },
       },
     })
@@ -93,11 +104,14 @@ export class PlanMascotaController {
     return this.planRepository.mascotas(id).patch(mascota, where);
   }
 
+  //--------------------------------------------------------
+  @authenticate("assessor", "admin")
+
   @del('/plans/{id}/mascotas', {
     responses: {
       '200': {
         description: 'Plan.Mascota DELETE success count',
-        content: {'application/json': {schema: CountSchema}},
+        content: { 'application/json': { schema: CountSchema } },
       },
     },
   })

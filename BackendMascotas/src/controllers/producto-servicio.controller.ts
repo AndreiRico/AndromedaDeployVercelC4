@@ -21,7 +21,6 @@ import {
 import {ProductoServicio} from '../models';
 import {ProductoServicioRepository} from '../repositories';
 
-@authenticate('admin')
 
 export class ProductoServicioController {
   constructor(
@@ -29,6 +28,8 @@ export class ProductoServicioController {
     public productoServicioRepository : ProductoServicioRepository,
   ) {}
 
+//--------------------------------------------------------
+@authenticate("admin")
 
   @post('/producto-servicios')
   @response(200, {
@@ -51,6 +52,7 @@ export class ProductoServicioController {
     return this.productoServicioRepository.create(productoServicio);
   }
 
+
   @get('/producto-servicios/count')
   @response(200, {
     description: 'ProductoServicio model count',
@@ -62,7 +64,6 @@ export class ProductoServicioController {
     return this.productoServicioRepository.count(where);
   }
 
-  @authenticate('assessor')
 
   @get('/producto-servicios')
   @response(200, {
@@ -81,6 +82,9 @@ export class ProductoServicioController {
   ): Promise<ProductoServicio[]> {
     return this.productoServicioRepository.find(filter);
   }
+
+//--------------------------------------------------------
+@authenticate("admin")
 
   @patch('/producto-servicios')
   @response(200, {
@@ -101,7 +105,6 @@ export class ProductoServicioController {
     return this.productoServicioRepository.updateAll(productoServicio, where);
   }
 
-  @authenticate('assessor')
 
   @get('/producto-servicios/{id}')
   @response(200, {
@@ -119,7 +122,8 @@ export class ProductoServicioController {
     return this.productoServicioRepository.findById(id, filter);
   }
 
-  @authenticate.skip()
+//--------------------------------------------------------
+@authenticate("admin")
 
   @patch('/producto-servicios/{id}')
   @response(204, {
@@ -139,7 +143,9 @@ export class ProductoServicioController {
     await this.productoServicioRepository.updateById(id, productoServicio);
   }
 
-  @authenticate.skip()
+
+//--------------------------------------------------------
+@authenticate("admin")
 
   @put('/producto-servicios/{id}')
   @response(204, {
@@ -151,6 +157,9 @@ export class ProductoServicioController {
   ): Promise<void> {
     await this.productoServicioRepository.replaceById(id, productoServicio);
   }
+
+//--------------------------------------------------------
+@authenticate("admin")
 
   @del('/producto-servicios/{id}')
   @response(204, {

@@ -21,7 +21,6 @@ import {
 import {Prospecto} from '../models';
 import {ProspectoRepository} from '../repositories';
 
-//@authenticate("admin","assessor")
 
 export class ProspectoController {
   constructor(
@@ -29,7 +28,7 @@ export class ProspectoController {
     public prospectoRepository : ProspectoRepository,
   ) {}
 
-  @authenticate('client')
+  //acceso publico
 
   @post('/prospectos')
   @response(200, {
@@ -63,6 +62,9 @@ export class ProspectoController {
     return this.prospectoRepository.count(where);
   }
 
+  //--------------------------------------------------------
+  @authenticate("admin", "assessor")
+
   @get('/prospectos')
   @response(200, {
     description: 'Array of Prospecto model instances',
@@ -80,6 +82,9 @@ export class ProspectoController {
   ): Promise<Prospecto[]> {
     return this.prospectoRepository.find(filter);
   }
+
+//--------------------------------------------------------
+@authenticate("admin", "assessor")
 
   @patch('/prospectos')
   @response(200, {
@@ -100,6 +105,10 @@ export class ProspectoController {
     return this.prospectoRepository.updateAll(prospecto, where);
   }
 
+
+//--------------------------------------------------------
+@authenticate("admin", "assessor")
+
   @get('/prospectos/{id}')
   @response(200, {
     description: 'Prospecto model instance',
@@ -116,7 +125,8 @@ export class ProspectoController {
     return this.prospectoRepository.findById(id, filter);
   }
 
-  @authenticate.skip()
+//--------------------------------------------------------
+@authenticate("admin", "assessor")
 
   @patch('/prospectos/{id}')
   @response(204, {
@@ -136,7 +146,8 @@ export class ProspectoController {
     await this.prospectoRepository.updateById(id, prospecto);
   }
 
-  @authenticate.skip()
+//--------------------------------------------------------
+@authenticate("admin", "assessor")
 
   @put('/prospectos/{id}')
   @response(204, {
@@ -148,6 +159,9 @@ export class ProspectoController {
   ): Promise<void> {
     await this.prospectoRepository.replaceById(id, prospecto);
   }
+
+//--------------------------------------------------------
+@authenticate("admin")
 
   @del('/prospectos/{id}')
   @response(204, {
