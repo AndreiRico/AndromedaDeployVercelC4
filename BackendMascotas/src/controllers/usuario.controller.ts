@@ -66,7 +66,7 @@ export class UsuarioController {
     
   //--------------- Crear Usuarios ---------------------------
 
-  @authenticate("admin","assessor","client")
+  //@authenticate("admin","assessor","client")
 
   @post('/usuarios')
   @response(200, {
