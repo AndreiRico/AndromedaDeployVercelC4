@@ -38,7 +38,7 @@ export class UsuarioController {
   @post('/identificarUsuario',{
     responses:{
       '200': {
-        description: 'Identificacio de usuario'
+        description: 'Identificacion de usuario'
       }
     }
   })
@@ -66,7 +66,7 @@ export class UsuarioController {
     
   //--------------- Crear Usuarios ---------------------------
 
-  @authenticate("admin","assessor","client")
+  //@authenticate("admin","assessor","client")
 
   @post('/usuarios')
   @response(200, {
