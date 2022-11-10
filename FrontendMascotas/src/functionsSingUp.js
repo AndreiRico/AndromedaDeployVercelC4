@@ -1,5 +1,5 @@
 // Example starter JavaScript for disabling form submissions if there are invalid fields
-(() => {
+(function () {
     'use strict'
 
     // Fetch all the forms we want to apply custom Bootstrap validation styles to
@@ -11,8 +11,9 @@
             if (!form.checkValidity()) {
                 event.preventDefault()
                 event.stopPropagation()
-            }else{
-                registrarUsuario();
+            } else {
+                registrarUsuario()
+                //event.preventDefault()
             }
 
             form.classList.add('was-validated')
@@ -20,8 +21,10 @@
     })
 })()
 
+//------------------------REGISTRAR USUARIO--------------
+
 function registrarUsuario(params) {
-    alert("Entra al resgistro")
+    //alert("Entra al resgistro")
     let nombre = document.querySelector("#txtNombre").value;
     let apellido = document.querySelector("#txtApellido").value;
     let correo = document.querySelector("#txtCorreo").value;
@@ -40,12 +43,13 @@ function registrarUsuario(params) {
     fetch(url, {
         method: 'POST',
         body: JSON.stringify(datos),
-        headers:{
+        headers: {
             'Content-Type': 'application/json',
             'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko)'
         }
     }).then(res => res.json())
-    .then(mensaje => {
-        console.log(mensaje)
-    })
+        .then(mensaje => {
+            console.log(mensaje);
+            alert("Te has registrado correctamente. Revisa tu correo electrónico");
+        })
 }
