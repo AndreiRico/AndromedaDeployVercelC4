@@ -27,17 +27,17 @@ function registrarUsuario(params) {
     //alert("Entra al resgistro")
     let nombre = document.querySelector("#txtNombre").value;
     let apellido = document.querySelector("#txtApellido").value;
-    let correo = document.querySelector("#txtCorreo").value;
     let cedula = document.querySelector("#txtCedula").value;
     let telefono = document.querySelector("#txtTelefono").value;
+    let correo = document.querySelector("#txtCorreo").value;
 
     let url = 'http://localhost:3000/usuarios';
     let datos = {
         nombre: nombre,
         apellido: apellido,
-        correo: correo,
         cedula: cedula,
         telefono: telefono,
+        correo: correo,
         rol: 'client'
     };
     fetch(url, {
@@ -52,4 +52,12 @@ function registrarUsuario(params) {
             console.log(mensaje);
             alert("Te has registrado correctamente. Revisa tu correo electrónico");
         })
+}
+
+function abrir(){
+    document.getElementById("").style.display="block";
+}
+
+function cerrar(){
+    document.getElementById("").style.display="none";
 }

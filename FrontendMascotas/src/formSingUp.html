@@ -8,12 +8,13 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link rel="stylesheet" href="/FrontendMascotas/src/styles.css">
+    <link rel="shortcut icon" href="/FrontendMascotas/img/LOGO/favicon.ico" href="">
 </head>
 
 <body class="background"">
     <nav class=" navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
-        <a class="navbar-brand" href="/FrontendMascotas/src/home.html">Mascota Feliz</a>
+        <a class="navbar-brand" href="/FrontendMascotas/src/home.html"><img src="/FrontendMascotas/img/LOGO/logo.png" alt="logo de Mascota Feliz" id="nav-logo"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -21,33 +22,25 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/FrontendMascotas/src/home.html">INICIO</a>
+                    <a class="nav-link" aria-current="page" href="/FrontendMascotas/src/home.html">INICIO</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                        aria-expanded="false">
-                        Dropdown
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
-                    </ul>
+                    <a class="nav-link" href="#">SERVICIOS</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link disabled">Disabled</a>
+                    <a class="nav-link">PRODUCTOS</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link">PLANES</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link">ACERCA DE</a>
                 </li>
             </ul>
-            <form class="d-flex" role="search">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
+            <ul class="Nav-LogSing">
+                <button type="button" class="btnLogIn">Iniciar Sesión</button>
+                <button type="button" class="btnSingUp">Registrese</button>
+            </ul>
         </div>
     </div>
     </nav>
@@ -58,15 +51,29 @@
                 <div class="col-md-12">
                     <label for="txtNombre" class="form-label">Nombres</label>
                     <input type="text" class="form-control" id="txtNombre" required>
-                    <div class="valid-feedback">
-                        Looks good!
+                    <div class="invalid-feedback">
+                        Por favor ingrese sus Nombres
                     </div>
                 </div>
                 <div class="col-md-12">
                     <label for="txtApellido" class="form-label">Apellidos</label>
                     <input type="text" class="form-control" id="txtApellido" required>
-                    <div class="valid-feedback">
-                        Looks good!
+                    <div class="invalid-feedback">
+                        Por favor ingrese sus Apellidos
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <label for="txtCedula" class="form-label">Documento</label>
+                    <input type="text" class="form-control" id="txtCedula" required>
+                    <div class="invalid-feedback">
+                        Por favor digite su número de Documento
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <label for="txtTelefono" class="form-label">Celular</label>
+                    <input type="text" class="form-control" id="txtTelefono" required>
+                    <div class="invalid-feedback">
+                        Por favor ingrese un número de Celular
                     </div>
                 </div>
                 <div class="col-md-12">
@@ -76,28 +83,14 @@
                         <input type="text" class="form-control" id="txtCorreo" aria-describedby="inputGroupPrepend"
                             required>
                         <div class="invalid-feedback">
-                            Por favor ingresar un correo.
+                            Por favor ingrese su dirección de Correo Electrónico
                         </div>
                     </div>
-                </div>
-                <div class="col-md-12">
-                    <label for="txtCedula" class="form-label">Cédula</label>
-                    <input type="text" class="form-control" id="txtCedula" required>
-                    <div class="invalid-feedback">
-                        Por favor ingresar una cédula.
+                    <hr>
+                    <h5><a href="/FrontendMascotas/src/formLogIn.html">¿Ya tienes una cuenta? Inicia Sesión</a></h5>
+                    <div class="col-12 text-center">
+                        <button class="btnRegistrame" type="submit">REGISTRARME</button>
                     </div>
-                </div>
-                <div class="col-md-12">
-                    <label for="txtTelefono" class="form-label">Teléfono</label>
-                    <input type="text" class="form-control" id="txtTelefono" required>
-                    <div class="invalid-feedback">
-                        Por favor ingresar un número de teléfono.
-                    </div>
-                </div>
-                <h5><a href="/FrontendMascotas/src/formLogIn.html">¿Ya tienes una cuenta? Inicia Sesión</a></h5>
-                <div class="col-12 text-center">
-                    <button class="btnRegistrame" type="submit">REGISTRARME</button>
-                </div>
             </form>
         </div>
     </div>
@@ -105,6 +98,14 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
         crossorigin="anonymous"></script>
+    <br>
+    <div id="content-logo">
+        <img src="/FrontendMascotas/img/LOGO/logo2.png" alt="Logo de Mascota Feliz">
+    </div>
+    <hr>
+    <footer>
+        <p>Desarrollador por Andromeda &copy; 2022</p>
+    </footer>
 
 </body>
 
