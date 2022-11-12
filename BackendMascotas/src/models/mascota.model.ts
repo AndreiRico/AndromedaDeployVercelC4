@@ -37,7 +37,7 @@ export class Mascota extends Entity {
 
   @property({
     type: 'string',
-    required: true,
+    required: false,
   })
   comentario: string;
 

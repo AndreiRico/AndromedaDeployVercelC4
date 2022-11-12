@@ -26,7 +26,7 @@
             <a href="#" class="d-flex flex-column align-items-center text-white text-decoration-none dropdown-toggle"
                 data-bs-toggle="dropdown" aria-expanded="false">
                 <img src="/FrontendMascotas/img/2.jpeg" alt="" width="90" height="90" class="rounded-circle me-2">
-                <strong>Client</strong>
+                <strong>Assesor</strong>
             </a>
             <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
                 <li><a class="dropdown-item" href="#">Settings</a></li>
@@ -55,19 +55,12 @@
                         <use xlink:href="#" />
                     </svg>Perfil</a>
             </li>
-            <li><a href="#" class="nav-link link-light text-decoration-none"><svg class="bi pe-none me-2" width="16"
+            <li><a href="#" class="nav-link active link-light text-decoration-none"><svg class="bi pe-none me-2" width="16"
                         height="16">
                         <use xlink:href="#" />
                     </svg>Lista
-                    mascotas</a>
+                    Solicitudes</a>
             </li>
-            <li><a href="#" class="nav-link active link-light text-decoration-none"><svg class="bi pe-none me-2"
-                        width="16" height="16">
-                        <use xlink:href="#" />
-                    </svg>Registrar
-                    mascota</a>
-            </li>
-
             <li>
                 <a href="#" class="te nav-link link-light text-decoration-none">
                     <svg class="bi pe-none me-2" width="16" height="16">
@@ -87,7 +80,7 @@
     <!-- Formulario refistro mascota -->
 
     <div class="container content-center col-4">
-        <h1 class="text-center">Registrar Mascota</h1>
+        <h1 class="text-center">Validación Mascota</h1>
         <div id="form">
             <form class="row g-3 needs-validation" novalidate>
                 <div class="col-md-12">
@@ -115,8 +108,27 @@
                         Looks good!
                     </div>
                 </div>
+                <div class="col-md-12">
+                    <label for="txtEspecie" class="form-label">Estado</label>
+                    <select class="form-select" aria-label="Default select example" id="txtEspecie" required>
+                        <option selected></option>
+                        <option value="pendiente">Pendiente</option>
+                        <option value="afiliado">Afiliado</option>
+                    </select>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <label for="txtNombre" class="form-label">Comentario</label>
+                    <textarea class="form-control" id="txtNombre" rows="3" required></textarea>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
                 <div class="col-12 text-center">
-                    <button class="btn btn-dark" type="submit">Registrar</button>
+                    <button class="btn btn-success" type="submit">Aceptar</button>
+                    <button class="btn btn-danger" type="submit" onclick="">Rechazar</button>
                 </div>
             </form>
         </div>
