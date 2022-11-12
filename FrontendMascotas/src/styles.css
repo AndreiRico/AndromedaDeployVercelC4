@@ -1,4 +1,4 @@
-::root{
+::root {
     --background-color-secondary: #006282;
     --text-color-primary: #FFFFFF;
     --btn-background-envios: #000000;
@@ -6,38 +6,95 @@
     --text-color-secondary: #00EE26;
 }
 
-html{
+html {
     max-width: 100%;
     height: 100%;
 }
 
-label{
+.btnLogIn {
+    background-color: #000000;
+    border: #D9D9D9;
+    border: solid 1px;
+    color: #D9D9D9;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 1rem;
+    margin: 5;
+}
+
+.btnLogIn:hover {
+    background-color: #FFFFFF;
+    border: #000000;
+    border: solid 1px;
+    color: #000000;
+    font-weight: bold;
+}
+
+.btnSingUp {
+    background-color: #D9D9D9;
+    border: #000000;
+    border: solid 1px;
+    color: #000000;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 1rem;
+    margin: 5;
+}
+
+.btnSingUp:hover {
+    background-color: #00EE26;
+    border: #D9D9D9;
+    border: solid 1px;
+    color: #000000;
+    font-weight: bold;
+}
+
+.nav-link {
+    color: #FFFFFF;
+    font-weight: bold;
+}
+
+.nav-link:hover {
+    color: #00EE26;
+}
+
+.Nav-LogSing{
+    margin: 0;
+}
+
+label {
     color: #D9D9D9;
     font-weight: bold;
     font-size: 1.5rem;
 }
 
-.background{
+.background {
     background-color: #006282;
 }
 
-.container{
+.container {
     margin-top: -50px;
     padding: 3.5%;
 }
 
-h1{
+h1 {
     text-align: center;
     color: #D9D9D9;
+    font-weight: bold;
 }
 
-#form{
+#form {
     height: 50%;
     width: 50%;
     margin: 0 auto;
 }
 
-.btnRegistrame{
+.form-control {
+    border: solid 3px;
+    border-color: #000000;
+}
+
+.btnRegistrame {
     background-color: #000000;
     color: #D9D9D9;
     border-radius: 8px;
@@ -46,38 +103,49 @@ h1{
     margin: 5;
 }
 
-.btnRegistrame:hover{
+.btnRegistrame:hover {
     background-color: #FFFFFF;
     border: #000000;
-    border:solid 4px;
+    border: solid 4px;
     color: #000000;
     font-weight: bold;
 }
 
-h5{
+h5 {
     text-align: center;
 }
 
-h5 a{
+h5 a {
     text-align: center;
     color: #FFFFFF;
 }
 
-h5 a:hover{
+h5 a:hover {
     color: #00EE26;
 }
 
-a{
+a {
     text-decoration: none;
 }
 
-.Cancel{
-    text-align: end;
-    padding-right: 15px;
-    padding-top: 5px;
-    font-weight: bold;
+#nav-logo{
+    width: 60%;
 }
 
-.Cancel:hover{
-    color: #00EE26;
+#content-logo{
+    text-align: center;
+}
+
+footer{
+    color: #FFFFFF;
+    font-weight: bold;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+p{
+    padding: 0;
+    margin: 0%;
 }
