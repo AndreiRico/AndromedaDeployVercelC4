@@ -53,11 +53,3 @@ function registrarUsuario(params) {
             alert("Te has registrado correctamente. Revisa tu correo electrónico");
         })
 }
-
-function abrir(){
-    document.getElementById("").style.display="block";
-}
-
-function cerrar(){
-    document.getElementById("").style.display="none";
-}

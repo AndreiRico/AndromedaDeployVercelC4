@@ -4,6 +4,7 @@
     --btn-background-envios: #000000;
     --btn-background-envios-hover: #D9D9D9;
     --text-color-secondary: #00EE26;
+    --text-color-third: #FFCA45;
 }
 
 html {
@@ -148,4 +149,9 @@ footer{
 p{
     padding: 0;
     margin: 0%;
+}
+
+.invalid-feedback{
+    color: #FFCA45;
+    font-weight: bold;
 }
