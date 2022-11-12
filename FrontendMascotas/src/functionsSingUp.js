@@ -50,6 +50,6 @@ function registrarUsuario(params) {
     }).then(res => res.json())
         .then(mensaje => {
             console.log(mensaje);
-            alert("Te has registrado correctamente. Revisa tu correo electrónico");
+            //alert("Te has registrado correctamente. Revisa tu correo electrónico");
         })
 }
