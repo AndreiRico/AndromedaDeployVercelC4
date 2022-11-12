@@ -21,7 +21,7 @@ import {
 import {Sucursal} from '../models';
 import {SucursalRepository} from '../repositories';
 
-@authenticate("admin")
+
 
 export class SucursalController {
   constructor(
@@ -29,6 +29,10 @@ export class SucursalController {
     public sucursalRepository : SucursalRepository,
   ) {}
 
+  //------------------ CREAR SUCURSAL ---------------
+  
+  //@authenticate("admin")
+  
   @post('/sucursals')
   @response(200, {
     description: 'Sucursal model instance',
@@ -50,6 +54,10 @@ export class SucursalController {
     return this.sucursalRepository.create(sucursal);
   }
 
+  //------------------ CONTAR SUCURSALES ---------------
+  
+  @authenticate("admin")
+
   @get('/sucursals/count')
   @response(200, {
     description: 'Sucursal model count',
@@ -60,6 +68,10 @@ export class SucursalController {
   ): Promise<Count> {
     return this.sucursalRepository.count(where);
   }
+
+  //------------------ MOSTRAR TODAS LAS SUCURSALES ---------------
+
+  @authenticate("admin")
 
   @get('/sucursals')
   @response(200, {
@@ -78,6 +90,10 @@ export class SucursalController {
   ): Promise<Sucursal[]> {
     return this.sucursalRepository.find(filter);
   }
+  
+  //------------------ ACTUALIZAR EN TODAS LAS SUCURSALES LOS CAMPOS ESPECIFICADOS ---------------
+  
+  @authenticate("admin")
 
   @patch('/sucursals')
   @response(200, {
@@ -98,6 +114,10 @@ export class SucursalController {
     return this.sucursalRepository.updateAll(sucursal, where);
   }
 
+  //------------------ CONSULTAR SUCURSAL POR ID ---------------
+  
+  @authenticate("admin")
+
   @get('/sucursals/{id}')
   @response(200, {
     description: 'Sucursal model instance',
@@ -113,6 +133,10 @@ export class SucursalController {
   ): Promise<Sucursal> {
     return this.sucursalRepository.findById(id, filter);
   }
+
+  //------------------ ACTUALIZAR ALGUNOS CAMPOS DE UNA SUCURSAL  ---------------
+  
+  @authenticate("admin")
 
   @patch('/sucursals/{id}')
   @response(204, {
@@ -132,6 +156,10 @@ export class SucursalController {
     await this.sucursalRepository.updateById(id, sucursal);
   }
 
+  //------------------ ACTUALIZAR TODOS LOS CAMPOS DE UNA SUCURSAL ---------------
+  
+  @authenticate("admin")
+
   @put('/sucursals/{id}')
   @response(204, {
     description: 'Sucursal PUT success',
@@ -142,6 +170,10 @@ export class SucursalController {
   ): Promise<void> {
     await this.sucursalRepository.replaceById(id, sucursal);
   }
+
+  //------------------ ELIMINAR UNA SUCURSAL ---------------
+  
+  @authenticate("admin")
 
   @del('/sucursals/{id}')
   @response(204, {

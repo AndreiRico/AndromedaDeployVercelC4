@@ -28,8 +28,9 @@ export class ProductoServicioController {
     public productoServicioRepository : ProductoServicioRepository,
   ) {}
 
-//--------------------------------------------------------
-@authenticate("admin")
+  //------------- CREAR PRODUCTO O SERVICIO -----------------
+
+  //@authenticate("admin")
 
   @post('/producto-servicios')
   @response(200, {
@@ -52,6 +53,7 @@ export class ProductoServicioController {
     return this.productoServicioRepository.create(productoServicio);
   }
 
+//------------------ CONTAR PRODUCTOS Y SERVICIOS ---------------------
 
   @get('/producto-servicios/count')
   @response(200, {
@@ -64,6 +66,7 @@ export class ProductoServicioController {
     return this.productoServicioRepository.count(where);
   }
 
+  //------------- MOSTRAR TODOS LOS PRODUCTOS Y SERVICIOS ---------------
 
   @get('/producto-servicios')
   @response(200, {
@@ -83,8 +86,9 @@ export class ProductoServicioController {
     return this.productoServicioRepository.find(filter);
   }
 
-//--------------------------------------------------------
-@authenticate("admin")
+  //----- ACTUALIZAR EN TODOS LOS PRODUCTOS Y SERVICIOS LOS CAMPOS ESPECIFICADOS ------
+
+  //@authenticate("admin")
 
   @patch('/producto-servicios')
   @response(200, {
@@ -105,6 +109,7 @@ export class ProductoServicioController {
     return this.productoServicioRepository.updateAll(productoServicio, where);
   }
 
+  //------------------ CONSULTAR PRODUCTO O SERVICIO POR ID ------------------------
 
   @get('/producto-servicios/{id}')
   @response(200, {
@@ -122,8 +127,9 @@ export class ProductoServicioController {
     return this.productoServicioRepository.findById(id, filter);
   }
 
-//--------------------------------------------------------
-@authenticate("admin")
+  //-------------- ACTUALIZAR ALGUNOS CAMPOS DE UN PRODUCTO O SERVICIO  ---------------
+
+  //@authenticate("admin")
 
   @patch('/producto-servicios/{id}')
   @response(204, {
@@ -143,9 +149,9 @@ export class ProductoServicioController {
     await this.productoServicioRepository.updateById(id, productoServicio);
   }
 
+///------------ ACTUALIZAR TODOS LOS CAMPOS DE UN PRODUCTO O SERVICIO --------------
 
-//--------------------------------------------------------
-@authenticate("admin")
+//@authenticate("admin")
 
   @put('/producto-servicios/{id}')
   @response(204, {
@@ -158,8 +164,9 @@ export class ProductoServicioController {
     await this.productoServicioRepository.replaceById(id, productoServicio);
   }
 
-//--------------------------------------------------------
-@authenticate("admin")
+//------------------- ELIMINAR UN PRODUCTO O UN SERVICIO--------------------------
+
+//@authenticate("admin")
 
   @del('/producto-servicios/{id}')
   @response(204, {

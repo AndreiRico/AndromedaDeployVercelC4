@@ -31,6 +31,8 @@ export class MascotaController {
   //--------------------------------------------------------
   @authenticate("assessor", "client", "admin")
 
+    //------------------ CREAR MASCOTA --------------------
+    
   @post('/mascotas')
   @response(200, {
     description: 'Mascota model instance',

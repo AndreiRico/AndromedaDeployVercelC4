@@ -29,7 +29,10 @@ export class PlanController {
   ) {}
 
   //--------------------------------------------------------
-@authenticate("admin")
+  
+  //@authenticate("admin")
+
+  //---------------- CREAR PLAN ------------------
 
   @post('/plans')
   @response(200, {
@@ -51,7 +54,11 @@ export class PlanController {
   ): Promise<Plan> {
     return this.planRepository.create(plan);
   }
+    
+  //---------------- CONTAR PLANES ------------------
 
+  @authenticate("admin")
+  
   @get('/plans/count')
   @response(200, {
     description: 'Plan model count',
@@ -62,6 +69,10 @@ export class PlanController {
   ): Promise<Count> {
     return this.planRepository.count(where);
   }
+
+  //---------------- MOSTRAR TODOS LOS PLANES ------------------
+
+  @authenticate("admin")
 
   @get('/plans')
   @response(200, {
@@ -81,8 +92,9 @@ export class PlanController {
     return this.planRepository.find(filter);
   }
 
-//--------------------------------------------------------
-@authenticate("admin")
+  //---------------- ACTUALIZAR EN TODOS LOS PLANES LOS CAMPOS ESPECIFICADOS -------------------
+
+  @authenticate("admin")
 
   @patch('/plans')
   @response(200, {
@@ -103,6 +115,10 @@ export class PlanController {
     return this.planRepository.updateAll(plan, where);
   }
 
+  //------------------- CONSULTAR PLAN POR ID ------------------------
+
+  @authenticate("admin")
+
   @get('/plans/{id}')
   @response(200, {
     description: 'Plan model instance',
@@ -119,8 +135,9 @@ export class PlanController {
     return this.planRepository.findById(id, filter);
   }
 
-//--------------------------------------------------------
-@authenticate("admin")
+  //------------------ ACTUALIZAR ALGUNOS CAMPOS DE UN PLAN  ---------------
+
+  @authenticate("admin")
 
   @patch('/plans/{id}')
   @response(204, {
@@ -140,8 +157,9 @@ export class PlanController {
     await this.planRepository.updateById(id, plan);
   }
 
-//--------------------------------------------------------
-@authenticate("admin")
+  //---------------- ACTUALIZAR TODOS LOS CAMPOS DE UN PLAN ---------------
+
+  @authenticate("admin")
 
   @put('/plans/{id}')
   @response(204, {
@@ -154,8 +172,9 @@ export class PlanController {
     await this.planRepository.replaceById(id, plan);
   }
 
-//--------------------------------------------------------
-@authenticate("admin")
+  //------------------ ELIMINAR UN PLAN ---------------
+
+  @authenticate("admin")
 
   @del('/plans/{id}')
   @response(204, {

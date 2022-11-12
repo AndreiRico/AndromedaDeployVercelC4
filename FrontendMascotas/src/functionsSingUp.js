@@ -13,7 +13,7 @@
                 event.stopPropagation()
             } else {
                 registrarUsuario()
-                //event.preventDefault()
+                event.preventDefault()
             }
 
             form.classList.add('was-validated')
@@ -24,7 +24,7 @@
 //------------------------REGISTRAR USUARIO--------------
 
 function registrarUsuario(params) {
-    //alert("Entra al resgistro")
+
     let nombre = document.querySelector("#txtNombre").value;
     let apellido = document.querySelector("#txtApellido").value;
     let correo = document.querySelector("#txtCorreo").value;
@@ -33,12 +33,12 @@ function registrarUsuario(params) {
 
     let url = 'http://localhost:3000/usuarios';
     let datos = {
-        nombre: nombre,
-        apellido: apellido,
-        correo: correo,
-        cedula: cedula,
-        telefono: telefono,
-        rol: 'client'
+            nombre: nombre,
+            apellido: apellido,
+            correo: correo,
+            cedula: cedula,
+            telefono: telefono,
+            rol: 'client'
     };
     fetch(url, {
         method: 'POST',
@@ -51,5 +51,7 @@ function registrarUsuario(params) {
         .then(mensaje => {
             console.log(mensaje);
             alert("Te has registrado correctamente. Revisa tu correo electrónico");
+                
+            //document.querySelector("#registrousuario").reset();  //para limpiar el formulario hago un reset para dejarlo nuevamente en blanco
         })
 }
