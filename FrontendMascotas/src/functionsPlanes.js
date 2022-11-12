@@ -12,7 +12,7 @@
                 event.preventDefault()
                 event.stopPropagation()
             } else {
-                registrarUsuario()
+                RegistrarPlan()
                 event.preventDefault()
             }
 
@@ -21,37 +21,33 @@
     })
 })()
 
-//------------------------REGISTRAR USUARIO--------------
+//------------------------ REGISTRAR PLAN --------------
 
-function registrarUsuario(params) {
-
+function RegistrarPlan(params) {
     let nombre = document.querySelector("#txtNombre").value;
-    let apellido = document.querySelector("#txtApellido").value;
-    let cedula = document.querySelector("#txtCedula").value;
-    let telefono = document.querySelector("#txtTelefono").value;
-    let correo = document.querySelector("#txtCorreo").value;
+    let descripcion = document.querySelector("#txtDescripcion").value;
+    let precio = document.querySelector("#txtPrecio").value;
 
-    let url = 'http://localhost:3000/usuarios';
+    let url = 'http://localhost:3000/plans';
     let datos = {
             nombre: nombre,
-            apellido: apellido,
-                cedula: cedula,
-            telefono: telefono,
-            correo: correo,
-        rol: 'client'
+            descripcion: descripcion,
+            precio: parseInt(precio)
     };
+
     fetch(url, {
         method: 'POST',
         body: JSON.stringify(datos),
         headers: {
             'Content-Type': 'application/json',
-            'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko)'
+            //'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko)',
+            'Authentication': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoiNjM2ZWEwY2YxY2U4N2E1N2MwMWRjOGFiIiwiY29ycmVvIjoiZGVsbWFyb3NvcmlvQGdtYWlsLmNvbSIsIm5vbWJyZSI6IlN1cGVyIiwicm9sIjoiYWRtaW4ifSwiaWF0IjoxNjY4MTk2NDI0fQ.FKehppvc_4tCHPQTsIl3BaN1991etfuUun0ULkJPWa8'
         }
     }).then(res => res.json())
         .then(mensaje => {
             console.log(mensaje);
-            alert("Te has registrado correctamente. Revisa tu correo electrónico");
+            //alert("Sucursal registrrada con éxito.");
                 
-            //document.querySelector("#registrousuario").reset();  //para limpiar el formulario hago un reset para dejarlo nuevamente en blanco
+            //document.querySelector("#registroplan").reset();  //para limpiar el formulario hago un reset para dejarlo nuevamente en blanco
         })
 }

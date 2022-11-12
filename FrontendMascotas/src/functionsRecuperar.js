@@ -12,7 +12,7 @@
                 event.preventDefault()
                 event.stopPropagation()
             } else {
-                registrarUsuario()
+                RecuperarClave()
                 event.preventDefault()
             }
 
@@ -21,24 +21,17 @@
     })
 })()
 
-//------------------------REGISTRAR USUARIO--------------
+//---------------------- RECUPERAR CONTRASEÑA --------------
 
-function registrarUsuario(params) {
+function RecuperarClave(params) {
 
-    let nombre = document.querySelector("#txtNombre").value;
-    let apellido = document.querySelector("#txtApellido").value;
-    let cedula = document.querySelector("#txtCedula").value;
-    let telefono = document.querySelector("#txtTelefono").value;
     let correo = document.querySelector("#txtCorreo").value;
 
-    let url = 'http://localhost:3000/usuarios';
+    let url = 'http://localhost:3000/recuperarClave';
     let datos = {
-            nombre: nombre,
-            apellido: apellido,
-                cedula: cedula,
-            telefono: telefono,
-            correo: correo,
-        rol: 'client'
+            
+            correo: correo
+           
     };
     fetch(url, {
         method: 'POST',
@@ -50,8 +43,8 @@ function registrarUsuario(params) {
     }).then(res => res.json())
         .then(mensaje => {
             console.log(mensaje);
-            alert("Te has registrado correctamente. Revisa tu correo electrónico");
+            alert("Se ha enviado la nueva contraseña. Revisa tu correo electrónico");
                 
-            //document.querySelector("#registrousuario").reset();  //para limpiar el formulario hago un reset para dejarlo nuevamente en blanco
+            //document.querySelector("#registroRecuperar").reset();  //para limpiar el formulario hago un reset para dejarlo nuevamente en blanco
         })
 }
