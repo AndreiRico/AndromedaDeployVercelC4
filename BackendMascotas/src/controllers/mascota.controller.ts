@@ -29,7 +29,7 @@ export class MascotaController {
   ) {}
 
   //--------------------------------------------------------
-  @authenticate("assessor", "client", "admin")
+  // @authenticate("assessor", "client", "admin")
 
   @post('/mascotas')
   @response(200, {
