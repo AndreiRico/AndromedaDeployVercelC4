@@ -29,6 +29,7 @@ function LoguearPersona() {
   let usuario = document.querySelector("#txtUsuario").value;
   let contrasena = document.querySelector("#txtContrasena").value;
 
+
   let url = "http://localhost:3000/identificarUsuario";
   let datos = {
     usuario: usuario,
@@ -40,43 +41,11 @@ function LoguearPersona() {
     body: JSON.stringify(datos),
     headers: {
       'Content-Type': 'application/json',
-      //'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko)'
+      'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko)'
     }
   }).then(res => res.json())
     .then(mensaje => {
       console.log(mensaje)
+      //document.querySelector("formLogIn").reset();
     })
 }
-
-//------------------------REGISTRAR USUARIO--------------
-/*
-function registrarUsuario(params) {
-  alert("Entra al resgistro")
-  let nombre = document.querySelector("#txtNombre").value;
-  let apellido = document.querySelector("#txtApellido").value;
-  let correo = document.querySelector("#txtCorreo").value;
-  let cedula = document.querySelector("#txtCedula").value;
-  let telefono = document.querySelector("#txtTelefono").value;
-
-  let url = 'http://localhost:3000/usuarios';
-  let datos = {
-    nombre: nombre,
-    apellido: apellido,
-    correo: correo,
-    cedula: cedula,
-    telefono: telefono,
-    rol: 'client'
-  };
-  fetch(url, {
-    method: 'POST',
-    body: JSON.stringify(datos),
-    headers: {
-      'Content-Type': 'application/json',
-      'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko)'
-    }
-  }).then(res => res.json())
-    .then(mensaje => {
-      console.log(mensaje)
-    })  
-}
-*/
