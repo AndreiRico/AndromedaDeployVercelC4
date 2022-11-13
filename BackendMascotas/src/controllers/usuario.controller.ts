@@ -158,7 +158,7 @@ export class UsuarioController {
 
   //------------------ Mostrar Todos los Usuarios --------------------------
 
-  @authenticate("admin","assessor")
+  //@authenticate("admin","assessor")
 
   @get('/usuarios')
   @response(200, {

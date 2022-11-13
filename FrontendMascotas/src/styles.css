@@ -1,10 +1,9 @@
 :root {
-    --background-color-secondary: #006282;
-    --text-color-primary: #FFFFFF;
-    --btn-background-envios: #000000;
-    --btn-background-envios-hover: #D9D9D9;
-    --text-color-secondary: #00EE26;
-    --text-color-third: #FFCA45;
+    --red: #F26419;
+    --orange: #F6AE2D;
+    --dark-blue: #33658A;
+    --light-blue: #86BBD8;
+    --dark: #2F4858;
 }
 
 /*
@@ -16,197 +15,12 @@ html {
 }
 
 /*
-* Diseño para el botón de Login que hay en Nav
-*/
-.btnLogIn {
-    background-color: var(--btn-background-envios);
-    border: var(--btn-background-envios-hover);
-    border: solid 1px;
-    color: var(--btn-background-envios-hover);
-    border-radius: 8px;
-    font-weight: bold;
-    font-size: 1rem;
-    margin: 5;
-}
-
-.btnLogIn:hover {
-    background-color: var(--btn-background-envios-hover);
-    border: var(--btn-background-envios);
-    border: solid 1px;
-    color: var(--btn-background-envios);
-    font-weight: bold;
-}
-
-/*
-* Diseño para el botón de Sign Up que hay en Nav
-*/
-
-.btnSingUp {
-    background-color: var(--text-color-primary);
-    border: var(--btn-background-envios);
-    border: solid 1px;
-    color:var(--btn-background-envios);
-    border-radius: 8px;
-    font-weight: bold;
-    font-size: 1rem;
-    margin: 5;
-}
-
-.btnSingUp:hover {
-    background-color: var(--text-color-secondary);
-    border: var(--btn-background-envios-hover);
-    border: solid 1px;
-    color: var(--btn-background-envios);
-    font-weight: bold;
-}
-
-/*
-* Color para los botones de navegación que están en la barra de navegación
-*/
-
-.nav-link {
-    color: var(--text-color-primary);
-    font-weight: bold;
-}
-
-.nav-link:hover {
-    color: var(--text-color-secondary);
-}
-
-/*
-* Acomoda los botones de Iniciar Sesión y Registrese de manera centrada en la barra de navegación
-*/
-
-.Nav-LogSing{
-    margin: 0;
-}
-
-/*
-* Diseño para los textos (títulos) que están antes de llenar cada campo en los formularios
-*/
-
-label {
-    color: var(--text-color-primary);
-    font-weight: bold;
-    font-size: 1.5rem;
-}
-
-/*
-* Color de fondo para todos los formularios
-*/
-.background {
-    background-color: var(--background-color-secondary);
-}
-
-/*
 * Diseño de la pagina de Registro
 */
 
 .container {
     margin-top: -50px;
     padding: 3.5%;
-}
-
-/*
-* Diseño de la página de Iniciar Sesión
-*/
-
-.container2{
-    width: 50%;
-    float: right;
-    padding: 5%;
-    padding-top: 3%;
-}
-
-/*
-* Ajustes de tamaño de la imagen de perro en la página de Iniciar Sesión
-*/
-.imagedog{
-    width: 50%;
-    float: left;
-}
-
-#imgdoglog{
-    height: 100%;
-    max-height:14.23cm;
-}
-
-/*
-* Logo en la página de Iniciar Sesión acomodado
-*/
-
-#logoLogIn{
-    text-align: center;
-    padding-left: 40%;
-    width: 60%;
-}
-
-/*
-* Estilo predeterminado para todos los h1 
-* En este caso para todos los títulso de cada campo en los Formularios
-*/
-
-h1 {
-    text-align: center;
-    color: var(--text-color-primary);
-    font-weight: bold;
-}
-
-/*
-* Diseño general de los formularios
-*/
-
-#form {
-    height: 50%;
-    width: 50%;
-    margin: 0 auto;
-}
-
-.form-control {
-    border: solid 3px;
-    border-color: var(--btn-background-envios);
-}
-
-/*
-* Diseño en el botón de Registrarme
-*/ 
-
-.btnRegistrame {
-    background-color: var(--btn-background-envios);
-    color: var(--btn-background-envios-hover);
-    border-radius: 8px;
-    font-weight: bold;
-    font-size: 1.5rem;
-    margin: 5;
-}
-
-.btnRegistrame:hover {
-    background-color: var(--btn-background-envios-hover);
-    border: var(--btn-background-envios);
-    border: solid 4px;
-    color: var(--btn-background-envios);
-    font-weight: bold;
-}
-
-/*
-* Diseño en el botón de Iniciar Sesión
-*/ 
-
-.btnLogInForm{
-    background-color: var(--btn-background-envios);
-    color: var(--btn-background-envios-hover);
-    border-radius: 8px;
-    font-weight: bold;
-    font-size: 1.5rem;
-    margin: 5;
-}
-
-.btnLogInForm:hover{
-    background-color: var(--btn-background-envios-hover);
-    border: var(--btn-background-envios);
-    border: solid 4px;
-    color: var(--btn-background-envios);
-    font-weight: bold;
 }
 
 /*
@@ -269,39 +83,15 @@ p{
     font-weight: bold;
 }
 
-/*
-* Diseño para los textarea
-*/
-
-textarea{
-    width: 100%;
-    height: 150px;
-    resize: none;
-    border: solid 3px;
-    border-color: #000000;
-    border-radius: 10px;
-}
-
-
 /*======================================= HOME ==========================================*/
 
+/*
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-
-:root{
-    --red: #F26419;
-    --orange: #F6AE2D;
-    --dark-blue: #33658A;
-    --light-blue: #86BBD8;
-    --dark: #2F4858;
-}
-
-body{
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
+*/
 
 /* align container */
 .container__center{
@@ -324,6 +114,7 @@ body{
     align-items: flex-start;
 }
 
+/*
 h1{
     font-weight: 300;
     font-size: 40px;
@@ -357,6 +148,7 @@ ul li{list-style: none;}
     width: 80%;
 }
 
+/*
 nav .logo{
     color: var(--orange);
 }
@@ -366,6 +158,7 @@ nav a{
     margin: 0 20px;
 }
 nav a:hover{color: var(--orange);}
+*/
 
 .landing__content {
     height: 90%;

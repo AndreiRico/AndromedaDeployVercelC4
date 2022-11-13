@@ -76,7 +76,7 @@ async count(
 }
 
 //--------------------------------------------------------
-@authenticate("admin", "assessor")
+//@authenticate("admin", "assessor")
 
 @get('/prospectos')
 @response(200, {

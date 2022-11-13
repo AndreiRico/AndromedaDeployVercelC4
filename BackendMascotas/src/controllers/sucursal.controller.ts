@@ -55,8 +55,6 @@ export class SucursalController {
   }
 
   //------------------ CONTAR SUCURSALES ---------------
-  
-  @authenticate("admin")
 
   @get('/sucursals/count')
   @response(200, {
@@ -71,7 +69,7 @@ export class SucursalController {
 
   //------------------ MOSTRAR TODAS LAS SUCURSALES ---------------
 
-  @authenticate("admin")
+  //@authenticate("admin")
 
   @get('/sucursals')
   @response(200, {

@@ -56,8 +56,6 @@ export class PlanController {
   }
     
   //---------------- CONTAR PLANES ------------------
-
-  @authenticate("admin")
   
   @get('/plans/count')
   @response(200, {
@@ -72,7 +70,7 @@ export class PlanController {
 
   //---------------- MOSTRAR TODOS LOS PLANES ------------------
 
-  @authenticate("admin")
+  //@authenticate("admin")
 
   @get('/plans')
   @response(200, {
