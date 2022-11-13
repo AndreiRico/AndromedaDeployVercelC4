@@ -1,4 +1,3 @@
-// Example starter JavaScript for disabling form submissions if there are invalid fields
 (function () {
     'use strict'
 
@@ -12,7 +11,7 @@
                 event.preventDefault()
                 event.stopPropagation()
             } else {
-                RecuperarClave()
+                registrarProspecto()
                 event.preventDefault()
             }
 
@@ -21,18 +20,26 @@
     })
 })()
 
-//---------------------- RECUPERAR CONTRASEÑA --------------
+//------------------------REGISTRAR PROSPECTO--------------
 
-function RecuperarClave(params) {
+function registrarProspecto(params) {
 
+    let nombre = document.querySelector("#txtNombres").value;
+    let apellido = document.querySelector("#txtApellidos").value;
     let correo = document.querySelector("#txtCorreo").value;
+    let telefono = document.querySelector("#txtTelefono").value;
+    let comentario = document.querySelector('#txtComentario').value;
 
-    let url = 'http://localhost:3000/recuperarClave';
+    let url = 'http://localhost:3000/prospectos';
     let datos = {
-
-        correo: correo
-
+        nombre: nombre,
+        apellido: apellido,
+        correo: correo,
+        celular: telefono,
+        comentario: comentario
     };
+    alert(JSON.stringify(datos));
+
     fetch(url, {
         method: 'POST',
         body: JSON.stringify(datos),
@@ -43,8 +50,8 @@ function RecuperarClave(params) {
     }).then(res => res.json())
         .then(mensaje => {
             console.log(mensaje);
-            alert("Se ha enviado la nueva contraseña. Revisa tu correo electrónico");
-
-            //document.querySelector("#registroRecuperar").reset();  //para limpiar el formulario hago un reset para dejarlo nuevamente en blanco
+            //alert("Te has registrado correctamente. Revisa tu correo electrónico");
+                
+            //document.querySelector("#registrousuario").reset();  //para limpiar el formulario hago un reset para dejarlo nuevamente en blanco
         })
 }

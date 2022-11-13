@@ -1,4 +1,4 @@
-::root {
+:root {
     --background-color-secondary: #006282;
     --text-color-primary: #FFFFFF;
     --btn-background-envios: #000000;
@@ -7,16 +7,22 @@
     --text-color-third: #FFCA45;
 }
 
+/*
+* Diseño principal de todas las páginas
+*/
 html {
     max-width: 100%;
     height: 100%;
 }
 
+/*
+* Diseño para el botón de Login que hay en Nav
+*/
 .btnLogIn {
-    background-color: #000000;
-    border: #D9D9D9;
+    background-color: var(--btn-background-envios);
+    border: var(--btn-background-envios-hover);
     border: solid 1px;
-    color: #D9D9D9;
+    color: var(--btn-background-envios-hover);
     border-radius: 8px;
     font-weight: bold;
     font-size: 1rem;
@@ -24,18 +30,22 @@ html {
 }
 
 .btnLogIn:hover {
-    background-color: #FFFFFF;
-    border: #000000;
+    background-color: var(--btn-background-envios-hover);
+    border: var(--btn-background-envios);
     border: solid 1px;
-    color: #000000;
+    color: var(--btn-background-envios);
     font-weight: bold;
 }
 
+/*
+* Diseño para el botón de Sign Up que hay en Nav
+*/
+
 .btnSingUp {
-    background-color: #D9D9D9;
-    border: #000000;
+    background-color: var(--text-color-primary);
+    border: var(--btn-background-envios);
     border: solid 1px;
-    color: #000000;
+    color:var(--btn-background-envios);
     border-radius: 8px;
     font-weight: bold;
     font-size: 1rem;
@@ -43,42 +53,64 @@ html {
 }
 
 .btnSingUp:hover {
-    background-color: #00EE26;
-    border: #D9D9D9;
+    background-color: var(--text-color-secondary);
+    border: var(--btn-background-envios-hover);
     border: solid 1px;
-    color: #000000;
+    color: var(--btn-background-envios);
     font-weight: bold;
 }
 
+/*
+* Color para los botones de navegación que están en la barra de navegación
+*/
+
 .nav-link {
-    color: #FFFFFF;
+    color: var(--text-color-primary);
     font-weight: bold;
 }
 
 .nav-link:hover {
-    color: #00EE26;
+    color: var(--text-color-secondary);
 }
+
+/*
+* Acomoda los botones de Iniciar Sesión y Registrese de manera centrada en la barra de navegación
+*/
 
 .Nav-LogSing{
     margin: 0;
 }
 
+/*
+* Diseño para los textos (títulos) que están antes de llenar cada campo en los formularios
+*/
+
 label {
-    color: #D9D9D9;
+    color: var(--text-color-primary);
     font-weight: bold;
     font-size: 1.5rem;
 }
 
+/*
+* Color de fondo para todos los formularios
+*/
 .background {
-    background-color: #006282;
+    background-color: var(--background-color-secondary);
 }
+
+/*
+* Diseño de la pagina de Registro
+*/
 
 .container {
     margin-top: -50px;
     padding: 3.5%;
 }
 
-/*CSS Login*/
+/*
+* Diseño de la página de Iniciar Sesión
+*/
+
 .container2{
     width: 50%;
     float: right;
@@ -86,6 +118,9 @@ label {
     padding-top: 3%;
 }
 
+/*
+* Ajustes de tamaño de la imagen de perro en la página de Iniciar Sesión
+*/
 .imagedog{
     width: 50%;
     float: left;
@@ -96,17 +131,30 @@ label {
     max-height:14.23cm;
 }
 
+/*
+* Logo en la página de Iniciar Sesión acomodado
+*/
+
 #logoLogIn{
     text-align: center;
     padding-left: 40%;
     width: 60%;
 }
 
+/*
+* Estilo predeterminado para todos los h1 
+* En este caso para todos los títulso de cada campo en los Formularios
+*/
+
 h1 {
     text-align: center;
-    color: #D9D9D9;
+    color: var(--text-color-primary);
     font-weight: bold;
 }
+
+/*
+* Diseño general de los formularios
+*/
 
 #form {
     height: 50%;
@@ -116,12 +164,16 @@ h1 {
 
 .form-control {
     border: solid 3px;
-    border-color: #000000;
+    border-color: var(--btn-background-envios);
 }
 
+/*
+* Diseño en el botón de Registrarme
+*/ 
+
 .btnRegistrame {
-    background-color: #000000;
-    color: #D9D9D9;
+    background-color: var(--btn-background-envios);
+    color: var(--btn-background-envios-hover);
     border-radius: 8px;
     font-weight: bold;
     font-size: 1.5rem;
@@ -129,16 +181,20 @@ h1 {
 }
 
 .btnRegistrame:hover {
-    background-color: #FFFFFF;
-    border: #000000;
+    background-color: var(--btn-background-envios-hover);
+    border: var(--btn-background-envios);
     border: solid 4px;
-    color: #000000;
+    color: var(--btn-background-envios);
     font-weight: bold;
 }
 
+/*
+* Diseño en el botón de Iniciar Sesión
+*/ 
+
 .btnLogInForm{
-    background-color: #000000;
-    color: #D9D9D9;
+    background-color: var(--btn-background-envios);
+    color: var(--btn-background-envios-hover);
     border-radius: 8px;
     font-weight: bold;
     font-size: 1.5rem;
@@ -146,12 +202,16 @@ h1 {
 }
 
 .btnLogInForm:hover{
-    background-color: #FFFFFF;
-    border: #000000;
+    background-color: var(--btn-background-envios-hover);
+    border: var(--btn-background-envios);
     border: solid 4px;
-    color: #000000;
+    color: var(--btn-background-envios);
     font-weight: bold;
 }
+
+/*
+------------------------------------------------------
+*/ 
 
 h5 {
     text-align: center;
@@ -159,16 +219,20 @@ h5 {
 
 h5 a {
     text-align: center;
-    color: #FFFFFF;
+    color: var(--btn-background-envios-hover);
 }
 
 h5 a:hover {
-    color: #00EE26;
+    color: var(--text-color-secondary);
 }
 
 a {
     text-decoration: none;
 }
+
+/*
+* Ubicación del logo en la barra de navegación
+*/ 
 
 #nav-logo{
     width: 60%;
@@ -178,8 +242,12 @@ a {
     text-align: center;
 }
 
+/*
+* Diseño del Pie de Página
+*/
+
 footer{
-    color: #FFFFFF;
+    color: var(--text-color-primary);
     font-weight: bold;
     text-align: center;
     margin: 0;
@@ -192,7 +260,24 @@ p{
     margin: 0%;
 }
 
+/*
+* Color para el mensaje en los campos vacíos de los formularios
+*/
+
 .invalid-feedback{
     color: #FFCA45;
     font-weight: bold;
+}
+
+/*
+* Diseño para los textarea
+*/
+
+textarea{
+    width: 100%;
+    height: 150px;
+    resize: none;
+    border: solid 3px;
+    border-color: #000000;
+    border-radius: 10px;
 }
