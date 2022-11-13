@@ -58,17 +58,17 @@ function leerMascota() {
 
 function actualizarMascota() {
     //alert("Entra al actualizar")
-    let nombre = document.querySelector("#txtNombre").value;
-    let fotoUrl = document.querySelector("#txtFotoUrl").value;
-    let especie = document.querySelector("#txtEspecie").value;
+    // let nombre = document.querySelector("#txtNombre").value;
+    // let fotoUrl = document.querySelector("#txtFotoUrl").value;
+    // let especie = document.querySelector("#txtEspecie").value;
     let estado = document.querySelector("#txtEstado").value;
     let comentario = document.querySelector("#txtComentario").value;
 
     let url = 'http://localhost:3000/mascotas/636ff128d87cba2270be4d35';
     let datos = {
-        nombre: nombre,
-        foto: fotoUrl,
-        especie: especie,
+        // nombre: nombre,
+        // foto: fotoUrl,
+        // especie: especie,
         estado: estado,
         comentario: comentario
 
