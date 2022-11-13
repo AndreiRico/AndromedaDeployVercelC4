@@ -29,9 +29,9 @@ function RecuperarClave(params) {
 
     let url = 'http://localhost:3000/recuperarClave';
     let datos = {
-            
-            correo: correo
-           
+
+        correo: correo
+
     };
     fetch(url, {
         method: 'POST',
@@ -44,7 +44,7 @@ function RecuperarClave(params) {
         .then(mensaje => {
             console.log(mensaje);
             alert("Se ha enviado la nueva contraseña. Revisa tu correo electrónico");
-                
+
             //document.querySelector("#registroRecuperar").reset();  //para limpiar el formulario hago un reset para dejarlo nuevamente en blanco
         })
 }
