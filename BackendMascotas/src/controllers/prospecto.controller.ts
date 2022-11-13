@@ -63,7 +63,7 @@ export class ProspectoController {
   }
 
   //--------------------------------------------------------
-  @authenticate("admin", "assessor")
+  //@authenticate("admin", "assessor")
 
   @get('/prospectos')
   @response(200, {

@@ -1,16 +1,13 @@
 // Example starter JavaScript for disabling form submissions if there are invalid fields
 (function () {
     'use strict'
-    ListarPlan()
+    ListadoMascota()
 })()
 
-//------------------------ LISTAR PLANES --------------
-function ListarPlan() {
-    /*let nombre = document.querySelector("#txtNombre").value;
-    let descripcion = document.querySelector("#txtDescripcion").value;
-    let precio = document.querySelector("#txtPrecio").value;*/
-
-    let url = 'http://localhost:3000/plans';
+//------------------------ LISTADO MASCOTAS --------------
+function ListadoMascota() {
+    
+    let url = 'http://localhost:3000/mascotas'; 
 
     fetch(url, {
         method: 'GET',
@@ -25,31 +22,43 @@ function ListarPlan() {
             let listadoBody = document.querySelector("#listado_Body")
             let btnEditar = document.createElement('button');
             let btnEliminar = document.createElement('button');
+
             btnEditar.innerHTML = "Editar"
             btnEliminar.innerHTML = "Eliminar"
-            respuesta.forEach(plan => {
+
+            respuesta.forEach(mascota => {
                 var fila = document.createElement('tr');     // create row node
                 var col1 = document.createElement('td');    // create column node
                 var col2 = document.createElement('td');    // create second column node
                 var col3 = document.createElement('td');    // create second column node
                 var col4 = document.createElement('td');
                 var col5 = document.createElement('td');
+                var col6 = document.createElement('td');
+                var col7 = document.createElement('td');
+                
 
                 fila.appendChild(col1);
                 fila.appendChild(col2);
                 fila.appendChild(col3);
                 fila.appendChild(col4);
                 fila.appendChild(col5);
+                fila.appendChild(col6);
+                fila.appendChild(col7);
                 
-                col1.innerHTML = plan.nombre;                         // put data in first column
-                col2.innerHTML = plan.descripcion;                        // put data in first column
-                col3.innerHTML = plan.precio;                         // put data in first column
-                col4.innerHTML = btnEditar.outerHTML;
-                col5.innerHTML = btnEliminar.outerHTML;
 
+                col1.innerHTML = mascota.nombre;                         // put data in first column
+                col2.innerHTML = mascota.foto;                        // put data in first column
+                col3.innerHTML = mascota.estado;
+                col4.innerHTML = mascota.especie;
+                col5.innerHTML = mascota.comentario;
+                col6.innerHTML = btnEliminar.outerHTML;
+                col7.innerHTML = btnEliminar.outerHTML;
+                
                 listadoBody.appendChild(fila); // append row to table
 
                 console.log(fila.outerHTML)
             });
         })
 }
+
+//alert("Listado mascotas!")

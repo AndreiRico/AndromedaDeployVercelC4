@@ -8,6 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link rel="stylesheet" href="/FrontendMascotas/src/styles.css">
+    <link rel="shortcut icon" href="/FrontendMascotas/img/LOGO/favicon.ico" href="">
 </head>
 
 <body class="background">
@@ -46,37 +47,50 @@
                 </ul>
             </div>
         </div>
-        </nav>
+        </nav>  
+    
+        <div class="container">
 
-    <div class="container">
-
-        <h1>LISTADO DE PLANES</h1>
-
-        <div class="bg-white p-2" id="listadoPlanes">
-            <table class="table table-striped">
-                <thead>
-
-                  <tr>
-                    <th scope="col">Nombre</th>
-                    <th scope="col">Descripción</th>
-                    <th scope="col">Precio</th>
-                    <th scope="col" colspan="2" class="text-center">Acciones</th>                    
-                  </tr>
-
-                </thead>
-
-                <tbody id="listado_Body">
-                </tbody>
-
-            </table>
+            <!---------------------LISTADO DE MASCOTAS----------------->            
+    
+            <h1>LISTADO DE MASCOTAS </h1>
+    
+            <div class="bg-white p-2" id="listadoMascotas">
+                <table class="table table-striped">
+                    <thead>
+    
+                      <tr>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Foto</th>
+                        <th scope="col">Estado</th>
+                        <th scope="col">Especie</th>
+                        <th scope="col">Comentario</th>
+                        <th scope="col" colspan="2" class="text-center" >Acciones</th>                    
+                      </tr>
+    
+                    </thead>
+    
+                    <tbody id="listado_Body">
+                    </tbody>
+    
+                </table>
+            </div>
         </div>
+    
+        <script type="text/javascript" src="/FrontendMascotas/src/functionlistadoMascotas.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+            crossorigin="anonymous"></script>
+   <br>
+    <div id="content-logo">
+        <a href="/FrontendMascotas/src/home.html">
+            <img src="/FrontendMascotas/img/LOGO/logo2.png" alt="Logo de Mascota Feliz">
+        </a>    
     </div>
-
-    <script type="text/javascript" src="/FrontendMascotas/src/functionsListarPlanes.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
-        crossorigin="anonymous"></script>
-
+    <hr>
+    <footer>
+        <p>Desarrollado por Andromeda &copy; 2022</p>
+    </footer>
 </body>
 
 </html>
