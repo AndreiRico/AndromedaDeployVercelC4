@@ -112,7 +112,7 @@ export class MascotaController {
   }
 
   //--------------------------------------------------------
-  //@authenticate("assessor", "client", "admin")
+  ////@authenticate("assessor", "client", "admin")
 
   @get('/mascotas/{id}')
   @response(200, {
@@ -131,7 +131,7 @@ export class MascotaController {
   }
 
   //--------------------------------------------------------
-  //@authenticate("assessor", "client", "admin")
+  ////@authenticate("assessor", "client", "admin")
 
   @patch('/mascotas/{id}')
   @response(204, {
