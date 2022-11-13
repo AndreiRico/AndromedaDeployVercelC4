@@ -29,7 +29,7 @@ export class MascotaController {
   ) {}
 
   //--------------------------------------------------------
-  @authenticate("assessor", "client", "admin")
+  //@authenticate("assessor", "client", "admin")
 
     //------------------ CREAR MASCOTA --------------------
     
@@ -55,7 +55,7 @@ export class MascotaController {
   }
 
   //--------------------------------------------------------
-  @authenticate("assessor", "client", "admin")
+ // @authenticate("assessor", "client", "admin")
 
   @get('/mascotas/count')
   @response(200, {
@@ -69,7 +69,7 @@ export class MascotaController {
   }
 
   //--------------------------------------------------------
-  @authenticate("assessor", "client", "admin")
+  //@authenticate("assessor", "client", "admin")
 
   @get('/mascotas')
   @response(200, {
@@ -90,7 +90,7 @@ export class MascotaController {
   }
 
   //--------------------------------------------------------
-  @authenticate("assessor", "client", "admin")
+  //@authenticate("assessor", "client", "admin")
 
   @patch('/mascotas')
   @response(200, {
@@ -112,7 +112,7 @@ export class MascotaController {
   }
 
   //--------------------------------------------------------
-  @authenticate("assessor", "client", "admin")
+  //@authenticate("assessor", "client", "admin")
 
   @get('/mascotas/{id}')
   @response(200, {
@@ -131,7 +131,7 @@ export class MascotaController {
   }
 
   //--------------------------------------------------------
-  @authenticate("assessor", "client", "admin")
+  //@authenticate("assessor", "client", "admin")
 
   @patch('/mascotas/{id}')
   @response(204, {
@@ -152,7 +152,7 @@ export class MascotaController {
   }
 
   //--------------------------------------------------------
-  @authenticate("admin")
+  //@authenticate("admin")
 
   @put('/mascotas/{id}')
   @response(204, {
@@ -166,7 +166,7 @@ export class MascotaController {
   }
 
   //--------------------------------------------------------
-  @authenticate("assessor", "admin")
+  //@authenticate("assessor", "admin")
 
   @del('/mascotas/{id}')
   @response(204, {

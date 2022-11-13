@@ -63,7 +63,36 @@ export class UsuarioController {
     }
 
   }
-    
+  
+  //--------------- Recuperar clave -----------------
+
+  @post('/recuperarClave', {
+    responses: {
+      '200': {
+        description: "Recuperación de clave de usuarios"
+      }
+    }
+  })
+  async recuperarClave(
+    @requestBody() correo: string
+  ): Promise<Boolean> {
+    let usuario = await this.usuarioRepository.findOne({
+      where: {
+        correo: correo
+      }
+    });
+    if (usuario) {
+      let clave = this.servicioAutenticacion.GenerarContrasena();
+      let claveCifrada = this.servicioAutenticacion.CifrarContrasena(clave);
+      usuario.contrasena = claveCifrada;
+      await this.usuarioRepository.updateById(usuario.id, usuario);
+
+      //consumir el microservicio de notificaciones
+      //Enviar la nueva clave por SMS
+      return true;
+    }
+    return false;
+  }  
   //--------------- Crear Usuarios ---------------------------
 
   //@authenticate("admin","assessor","client")
