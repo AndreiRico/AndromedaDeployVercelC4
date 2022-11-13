@@ -64,10 +64,6 @@ export class ProspectoController {
   return p;
   }
 
-<<<<<<< HEAD
-  //--------------------------------------------------------
-  //@authenticate("admin", "assessor")
-=======
 @get('/prospectos/count')
 @response(200, {
   description: 'Prospecto model count',
@@ -78,7 +74,6 @@ async count(
   ): Promise < Count > {
   return this.prospectoRepository.count(where);
 }
->>>>>>> ForContactMe
 
 //--------------------------------------------------------
 @authenticate("admin", "assessor")
