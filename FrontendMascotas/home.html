@@ -1,14 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta nombre="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/FrontendMascotas/src/css/styleHomeMF.css">
+    <link rel="stylesheet" href="/FrontendMascotas/src/css/home.css">
     <!-- font awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
         integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
-    <title>Home</title>
+    <title>Mascota Feliz</title>
+    <link rel="shortcut icon" href="/FrontendMascotas/img/LOGO/favicon.ico">
 </head>
 
 <body>
@@ -18,10 +19,19 @@
             <img src="/FrontendMascotas/img/LOGO/logo.png" id="nav-logo">
             <ul class="center__row">
                 <li><a href="#">INICIO</a></li>
-                <li><a href="#">SERVICIOS</a></li>
-                <li><a href="#">PRODUCTOS</a></li>
-                <li><a href="#">PLANES</a></li>
-                <li><a href="#">ACERCA DE</a></li>
+                <li><a href="#productos">PRODUCTOS</a></li>
+                <li><a href="#servicios">SERVICIOS</a></li>
+                <li><a href="#planes">PLANES</a></li>
+                <li><a href="#contactar">CONTACTAR</a></li>
+                <li><a href="/FrontendMascotas/src/about.html">ACERCA DE</a></li>
+            </ul>
+            <ul class="Nav-LogSing">
+                <a href="/FrontendMascotas/src/formLogIn.html">
+                    <button type="button" class="btnLogIn">Iniciar Sesión</button>
+                </a>
+                <a href="/FrontendMascotas/src/formSingUp.html">
+                    <button type="button" class="btnSingUp">Registrese</button>
+                </a>
             </ul>
         </nav>
         <div class="landing__content center__row">
@@ -32,7 +42,7 @@
                 </h1>
                 <p>Toda nuestra gran variedad de servicios, al alcance de todos, no te quedes con la duda, pregunta a
                     nuestros asesores, conoce todos los beneficios de ser parte de la familia Mascota Feliz. </p>
-                <button><a href="#/">Asesoria gratis</a></button>
+                <button><a href="#contactar">Asesoria gratis</a></button>
 
             </div>
             <div class="image__pet"></div>
@@ -42,6 +52,7 @@
 
     <!-- PLANES  -->
     <section id="help" class="container__center">
+        <a name="planes" />
         <h1>Planes para tu Mascota</h1>
         <div class="help__cards--container center__row">
             <div class="help__card container__center">
@@ -93,7 +104,74 @@
             class="img__gallery" id="img-9">
     </section>
 
+    <!-- PRODUCTOS  -->
+    <section id="help" class="container__center">
+        <a name="productos" />
+        <h1>Productos para tu Mascota</h1>
+        <div class="help__cards--container center__row">
+            <div class="help__card container__center">
+                <span class="card__title">Plan basico</span>
+                <h3>Un plan pensado para ti.</h3>
+                <p>Pregunta por nuestro servicio, ingresa a nuestra familia Mascota feliz.</p>
+                <div class="card__link container__center">
+                    <a href="#">Mas información</a>
+                </div>
+            </div>
+            <div class="help__card container__center">
+                <span class="card__title">Plan Clasico</span>
+                <h3>Hecho a tu medida</h3>
+                <p>Conoce mas acerca de nuestro plan clasico, le ponemos corazon a lo que amas.</p>
+                <div class="card__link container__center">
+                    <a href="#">Saber más</a>
+                </div>
+            </div>
+            <div class="help__card container__center">
+                <span class="card__title">Plan global</span>
+                <h3>Exclusividad para ti.</h3>
+                <p>Nuestro plan global es todo lo que tu mascota necesita, amamos lo que amas.</p>
+                <div class="card__link container__center">
+                    <a href="#">Adquirir</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr>
+
+    <!-- SERVICIOS  -->
+    <section id="help" class="container__center">
+        <a name="servicios" />
+        <h1>Servicios para tu Mascota</h1>
+        <div class="help__cards--container center__row">
+            <div class="help__card container__center">
+                <span class="card__title">Plan basico</span>
+                <h3>Un plan pensado para ti.</h3>
+                <p>Pregunta por nuestro servicio, ingresa a nuestra familia Mascota feliz.</p>
+                <div class="card__link container__center">
+                    <a href="#">Mas información</a>
+                </div>
+            </div>
+            <div class="help__card container__center">
+                <span class="card__title">Plan Clasico</span>
+                <h3>Hecho a tu medida</h3>
+                <p>Conoce mas acerca de nuestro plan clasico, le ponemos corazon a lo que amas.</p>
+                <div class="card__link container__center">
+                    <a href="#">Saber más</a>
+                </div>
+            </div>
+            <div class="help__card container__center">
+                <span class="card__title">Plan global</span>
+                <h3>Exclusividad para ti.</h3>
+                <p>Nuestro plan global es todo lo que tu mascota necesita, amamos lo que amas.</p>
+                <div class="card__link container__center">
+                    <a href="#">Adquirir</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <div class="formularioContactenme">
+        <a name="contactar"/>
         <h1 id="H1MensajeProspecto">CONTACTAR CON UN ASESOR</h1>
         <p id="ParrafoMensajeProspecto">Llena el formulario de Contacto y Nosotros te llamamos</p>
         <a href="/FrontendMascotas/src/formContactMe.html">
@@ -103,7 +181,7 @@
 
     <footer>
         <div class="footer__cont center__row">
-            <p>Mascota Feliz &copy; 2022</p>
+            <p id="contentfoot">Mascota Feliz &copy; 2022</p>
         </div>
     </footer>
 

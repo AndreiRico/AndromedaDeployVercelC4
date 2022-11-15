@@ -92,13 +92,77 @@ nav a:hover{color: var(--orange);}
 
 #nav-logo{
     width: 70px;
-    padding-top: 1%;
+    padding-top: 3%;
 }
 
 #content-logo{
     text-align: center;
 }
 
+/*
+* Diseño para el botón de Login que hay en Nav
+*/
+.btnLogIn {
+    background-color: var(--btn-background1);
+    border: var(--btn-background2);
+    border: solid 1px;
+    color: var(--btn-background2);
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 1rem;
+    margin: 5;
+    padding: 2px;
+}
+
+.btnLogIn:hover {
+    background-color: var(--btn-background2);
+    border: var(--btn-background1);
+    border: solid 1px;
+    color: var(--btn-background1);
+    font-weight: bold;
+}
+
+/*
+* Diseño para el botón de Sign Up que hay en Nav
+*/
+.btnSingUp {
+    background-color: var(--btn-background2);
+    border: var(--btn-background1);
+    border: solid 1px;
+    color:var(--btn-background1);
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 1rem;
+    margin: 5;
+    padding: 2px;
+}
+
+.btnSingUp:hover {
+    background-color: var(--btn-background1);
+    border: var(--btn-background2);
+    border: solid 1px;
+    color: var(--btn-background2);
+    font-weight: bold;
+}
+
+/*
+* Acomoda los botones de Iniciar Sesión y Registrese de manera centrada en la barra de navegación
+*/
+.Nav-LogSing{
+    margin: 0;
+}
+
+/*
+* Color para los botones de navegación que están en la barra de navegación
+*/
+.nav-link {
+    color: var(--text-color1);
+    font-weight: bold;
+}
+
+.nav-link:hover {
+    color: var(--text-color2);
+}
 
 .landing__content {
     height: 90%;
@@ -143,7 +207,7 @@ nav a:hover{color: var(--orange);}
     background-repeat: no-repeat;
 }
 
-/* PLANES =========*/
+/* PLANES, PRODUCTOS & SERVICIOS =========*/
 #help{
     width: 80vw;
     max-width: 1200px;
@@ -227,15 +291,15 @@ nav a:hover{color: var(--orange);}
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: repeat(3, 33%);
-    margin: 2rem 0;
+    margin: 0;
+    padding-bottom: 0;
 }
 
 .img__gallery{
     height: 100%;
     width: 100%;
     object-fit: cover;
-    cursor: pointer;
-}
+    }
 
 
 #img-1{grid-column: 1/3; grid-row:1/3;}
@@ -291,8 +355,9 @@ footer{
 }
 
 .footer__cont{
-    width: 60%;
-    margin: auto;
+    width: 100%;
+    text-align: center;
+    margin: 0;
 }
 
 .footer__cont p{
@@ -303,4 +368,9 @@ footer{
     color: var(--light-blue);
     font-size: 20px;
     margin: 0 10px;
+}
+
+#contentfoot{
+    text-align: center;
+    width: 100%;
 }

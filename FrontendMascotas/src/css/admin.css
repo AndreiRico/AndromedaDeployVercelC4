@@ -153,12 +153,12 @@ label {
     border-color: var(--btn-background1);
 }
 
-/*
+
 * Diseño en el botón de Registrarme
 */ 
 
 .btnRegistrame {
-    background-color: var(--btn-background1);
+    background-color: /*var(--btn-background1);
     color: var(--btn-background2);
     border-radius: 8px;
     font-weight: bold;
