@@ -7,12 +7,14 @@ import { CambioContrasenaComponent } from './cambio-contrasena/cambio-contrasena
 import { RecuperarContrasenaComponent } from './recuperar-contrasena/recuperar-contrasena.component';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
+import { CerrarSesionComponent } from './cerrar-sesion/cerrar-sesion.component';
 
 @NgModule({
   declarations: [
     IdentificacionComponent,
     CambioContrasenaComponent,
-    RecuperarContrasenaComponent
+    RecuperarContrasenaComponent,
+    CerrarSesionComponent
   ],
   imports: [
     CommonModule,
