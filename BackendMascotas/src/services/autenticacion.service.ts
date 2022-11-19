@@ -30,8 +30,9 @@ export class AutenticacionService {
 
   IdentificarPersona(usuario: string, contrasena: string){
     try{
-      let claveEncriptadaUsuario = cryptoJS.MD5(contrasena).toString();
-      let u = this.usuarioRepository.findOne({where: {correo: usuario, contrasena:claveEncriptadaUsuario}});
+      //let claveEncriptadaUsuario = cryptoJS.MD5(contrasena).toString();
+      // let u = this.usuarioRepository.findOne({where: {correo: usuario, contrasena:claveEncriptadaUsuario}});
+      let u = this.usuarioRepository.findOne({where: {correo: usuario, contrasena:contrasena}});
       if(u){
         return u;
       }
