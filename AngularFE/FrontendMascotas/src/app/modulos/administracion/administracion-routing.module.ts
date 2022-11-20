@@ -38,7 +38,7 @@ const routes: Routes = [
     component: CrearProductoComponent
   },
   {
-    path: 'editar-producto:id',
+    path: 'editar-producto/:id',
     component: EditarProductoComponent
   }
 ];

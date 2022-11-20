@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { ManejoRoutingModule } from './manejo-routing.module';
 import { AsignarPlanComponent } from './asignar-plan/asignar-plan.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -11,7 +12,9 @@ import { AsignarPlanComponent } from './asignar-plan/asignar-plan.component';
   ],
   imports: [
     CommonModule,
-    ManejoRoutingModule
+    ManejoRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class ManejoModule { }

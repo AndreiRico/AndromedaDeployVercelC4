@@ -53,7 +53,5 @@ export class CrearProductoComponent implements OnInit{
       alert("Error almacenando producto");
     })
   }
-
-
   
 }
