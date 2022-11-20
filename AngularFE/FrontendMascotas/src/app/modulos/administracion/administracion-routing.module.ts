@@ -26,7 +26,7 @@ const routes: Routes = [
     canActivate: [ValidadorSesionGuard]
   },
   {
-    path: 'buscar-usuario',
+    path: 'listar-usuarios',
     component: BuscarUsuarioComponent,
     canActivate: [ValidadorSesionGuard]
   },

@@ -1,1 +1,60 @@
-<p>buscar-usuario works!</p>
+<a routerLink="/administracion/crear-producto" class="btn">Nuevo usuario</a>
+<div class="card">
+    <div class="card-action blue-grey center-align white-text">
+        <h3>Lista de usuarios</h3>
+    </div>
+    <div class="card-content">
+
+        <table class="highlight white">
+            <thead>
+                <tr>
+                    <th>
+                        Rol
+                    </th>
+                    <th>
+                        Nombre
+                    </th>
+                    <th>
+                        Apellido
+                    </th>
+                    <th>
+                        Cédula
+                    </th>
+                    <th>
+                        Correo
+                    </th>
+                    <th>
+                        Telefono
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let p of listadoRegistros">
+                    <td>
+                        {{p.rol}}
+                    </td>
+                    <td>
+                        {{p.nombre}}
+                    </td>
+                    <td>
+                        {{p.apellido}}
+                    </td>
+                    <td>
+                        {{p.cedula}}
+                    </td>
+                    <td>
+                        {{p.correo}}
+                    </td>
+                    <td>
+                        {{p.telefono}}
+                    </td>
+                    <td>
+                        <a routerLink="/administracion/editar-usuario/{{p.id}}" class="btn"><i
+                                class="material-icons prefix">edit</i></a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+</div>
