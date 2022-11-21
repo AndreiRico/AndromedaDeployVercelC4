@@ -1,7 +1,7 @@
-<a routerLink="/administracion/crear-plan" class="btn">Nuevo Plan</a>
+<a routerLink="/administracion/crear-sucursal" class="btn">Nueva Sucursal</a>
 <div class="card">
     <div class="card-action blue-grey center-align white-text">
-        <h3>Lista de planes</h3>
+        <h3>Lista de Sucursales</h3>
     </div>
     <div class="card-content">
 
@@ -9,13 +9,16 @@
             <thead>
                 <tr>
                     <th>
-                        Nombre
+                        Departamento
                     </th>
                     <th>
-                        Descripcion
+                        Ciudad
                     </th>
                     <th>
-                        Precio
+                        Dirección
+                    </th>
+                    <th>
+                        Teléfono
                     </th>
                     <th>
                         Editar
@@ -23,18 +26,21 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let pl of listadoRegistrosPl">
+                <tr *ngFor="let s of listadoRegistros">
                     <td>
-                        {{pl.nombre}}
+                        {{s.departamento}}
                     </td>
                     <td>
-                        {{pl.descripcion}}
+                        {{s.ciudad}}
                     </td>
                     <td>
-                        {{pl.precio}}
+                        {{s.direccion}}
                     </td>
                     <td>
-                        <a routerLink="/administracion/editar-plan/{{pl.id}}" class="btn"><i
+                        {{s.telefono}}
+                    </td>
+                    <td>
+                        <a routerLink="/administracion/editar-sucursal/{{s.id}}" class="btn"><i
                                 class="material-icons prefix">edit</i></a>
                     </td>
                 </tr>
@@ -43,3 +49,4 @@
 
     </div>
 </div>
+

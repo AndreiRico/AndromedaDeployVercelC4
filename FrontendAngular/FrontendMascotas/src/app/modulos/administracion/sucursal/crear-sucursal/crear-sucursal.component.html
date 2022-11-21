@@ -2,27 +2,34 @@
     <div class="col s12 m8 l6 offset-m2 offset-l3">
         <div class="card">
             <div class="card-action blue-grey center-align white-text">
-                <h3>Crear Plan</h3>
+                <h3>Crear Sucursal</h3>
             </div>
 
             <div class="card-content">
-                <form [formGroup]="fgValidador" (ngSubmit)="GuardarPlan()">
+                <form [formGroup]="fgValidador" (ngSubmit)="GuardarSucursal()">
+                    
                     <div class="input-field">
-                        <i class="material-icons prefix">text_fields</i>
-                        <label for="name">Nombre</label>
-                        <input formControlName="nombre" type="text" id="name">
+                        <i class="material-icons prefix">description</i>
+                        <label for="description">Departamento</label>
+                        <input formControlName="departamento" type="text" id="description">
                     </div><br>
                     
                     <div class="input-field">
                         <i class="material-icons prefix">description</i>
-                        <label for="description">Descripción</label>
-                        <input formControlName="descripcion" type="text" id="description">
+                        <label for="description">Ciudad</label>
+                        <input formControlName="ciudad" type="text" id="description">
                     </div><br>
 
                     <div class="input-field">
                         <i class="material-icons prefix">label_outline</i>
-                        <label for="price">Precio</label>
-                        <input formControlName="precio" type="text" id="price">
+                        <label for="price">Dirección</label>
+                        <input formControlName="direccion" type="text" id="price">
+                    </div><br>
+
+                    <div class="input-field">
+                        <i class="material-icons prefix">text_fields</i>
+                        <label for="price">Teléfono</label>
+                        <input formControlName="telefono" type="text" id="telefono">
                     </div><br>
 
                     <div class="form-field">

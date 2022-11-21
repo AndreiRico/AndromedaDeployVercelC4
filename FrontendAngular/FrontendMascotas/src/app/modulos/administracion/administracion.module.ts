@@ -15,6 +15,10 @@ import { EditarPlanComponent } from './planes/editar-plan/editar-plan.component'
 import { EliminarPlanComponent } from './planes/eliminar-plan/eliminar-plan.component';
 import { BuscarPlanComponent } from './planes/buscar-plan/buscar-plan.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CrearSucursalComponent } from './sucursal/crear-sucursal/crear-sucursal.component';
+import { EditarSucursalComponent } from './sucursal/editar-sucursal/editar-sucursal.component';
+import { EliminarSucursalComponent } from './sucursal/eliminar-sucursal/eliminar-sucursal.component';
+import { BuscarSucursalComponent } from './sucursal/buscar-sucursal/buscar-sucursal.component';
 
 
 @NgModule({
@@ -30,7 +34,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CrearPlanComponent,
     EditarPlanComponent,
     EliminarPlanComponent,
-    BuscarPlanComponent
+    BuscarPlanComponent,
+    CrearSucursalComponent,
+    EditarSucursalComponent,
+    EliminarSucursalComponent,
+    BuscarSucursalComponent
   ],
   imports: [
     CommonModule,
