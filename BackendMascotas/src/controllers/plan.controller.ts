@@ -70,8 +70,6 @@ export class PlanController {
 
   //---------------- MOSTRAR TODOS LOS PLANES ------------------
 
-  //@authenticate("admin")
-
   @get('/plans')
   @response(200, {
     description: 'Array of Plan model instances',
@@ -114,8 +112,6 @@ export class PlanController {
   }
 
   //------------------- CONSULTAR PLAN POR ID ------------------------
-
-  @authenticate("admin")
 
   @get('/plans/{id}')
   @response(200, {

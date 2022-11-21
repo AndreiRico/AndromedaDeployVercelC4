@@ -91,7 +91,7 @@ export class SucursalController {
   
   //------------------ ACTUALIZAR EN TODAS LAS SUCURSALES LOS CAMPOS ESPECIFICADOS ---------------
   
-  @authenticate("admin")
+  //@authenticate("admin")
 
   @patch('/sucursals')
   @response(200, {
@@ -114,7 +114,7 @@ export class SucursalController {
 
   //------------------ CONSULTAR SUCURSAL POR ID ---------------
   
-  @authenticate("admin")
+  //@authenticate("admin")
 
   @get('/sucursals/{id}')
   @response(200, {
@@ -134,7 +134,7 @@ export class SucursalController {
 
   //------------------ ACTUALIZAR ALGUNOS CAMPOS DE UNA SUCURSAL  ---------------
   
-  @authenticate("admin")
+  //@authenticate("admin")
 
   @patch('/sucursals/{id}')
   @response(204, {
@@ -156,7 +156,7 @@ export class SucursalController {
 
   //------------------ ACTUALIZAR TODOS LOS CAMPOS DE UNA SUCURSAL ---------------
   
-  @authenticate("admin")
+  //@authenticate("admin")
 
   @put('/sucursals/{id}')
   @response(204, {
@@ -171,7 +171,7 @@ export class SucursalController {
 
   //------------------ ELIMINAR UNA SUCURSAL ---------------
   
-  @authenticate("admin")
+  //@authenticate("admin")
 
   @del('/sucursals/{id}')
   @response(204, {

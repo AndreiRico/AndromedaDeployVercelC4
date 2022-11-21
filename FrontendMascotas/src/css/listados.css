@@ -1,0 +1,194 @@
+:root{
+    --background-color: #006282;
+    --text-color1: #FFFFFF;
+    --text-color2: #00EE26;
+    --text-color3: #FFCA45;
+    --btn-background1: #000000;
+    --btn-background2: #D9D9D9;
+}
+
+/*
+* Diseño en html
+*/
+html {
+    max-width: 100%;
+    height: 100%;
+}
+
+/*
+* Color de fondo para el formulario
+*/
+.background {
+    background-color: var(--background-color);
+}
+
+/*
+* Diseño para el botón de Login que hay en Nav
+*/
+.btnLogIn {
+    background-color: var(--btn-background1);
+    border: var(--btn-background2);
+    border: solid 1px;
+    color: var(--btn-background2);
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 1rem;
+    margin: 5;
+}
+
+.btnLogIn:hover {
+    background-color: var(--btn-background2);
+    border: var(--btn-background1);
+    border: solid 1px;
+    color: var(--btn-background1);
+    font-weight: bold;
+}
+
+/*
+* Diseño para el botón de Sign Up que hay en Nav
+*/
+.btnSingUp {
+    background-color: var(--btn-background2);
+    border: var(--btn-background1);
+    border: solid 1px;
+    color:var(--btn-background1);
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 1rem;
+    margin: 5;
+}
+
+.btnSingUp:hover {
+    background-color: var(--text-color2);
+    border: var(--btn-background2);
+    border: solid 1px;
+    color: var(--btn-background1);
+    font-weight: bold;
+}
+
+/*
+* Acomoda los botones de Iniciar Sesión y Registrese de manera centrada en la barra de navegación
+*/
+.Nav-LogSing{
+    margin: 0;
+}
+
+/*
+* Color para los botones de navegación que están en la barra de navegación
+*/
+.nav-link {
+    color: var(--text-color1);
+    font-weight: bold;
+}
+
+.nav-link:hover {
+    color: var(--text-color2);
+}
+
+/*
+* Ubicación del logo en la barra de navegación
+*/ 
+
+#nav-logo{
+    width: 60%;
+}
+
+#content-logo{
+    text-align: center;
+}
+
+
+/*
+* Diseño de la página de Iniciar Sesión
+*/
+.container2{
+    width: 50%;
+    float: right;
+    padding: 5%;
+    padding-top: 8%;
+}
+
+/*
+* Estilo predeterminado para todos el h1 
+*/
+h1 {
+    text-align: center;
+    color: var(--text-color1);
+    font-weight: bold;
+}
+
+/*
+* Diseño para los textos (títulos) que están antes de llenar cada campo en los formularios
+*/
+label {
+    color: var(--text-color1);
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+/*
+* Diseño general de los formularios
+*/
+
+#form {
+    height: 50%;
+    width: 50%;
+    margin: 0 auto;
+}
+
+/*
+* Ajustes de tamaño de la imagen de perro en la página de Iniciar Sesión
+*/
+.imagedog{
+    width: 50%;
+    float: left;
+}
+
+#imgdoglog{
+    height: 848px;
+}
+
+/*
+* Logo en la página de Iniciar Sesión acomodado
+*/
+
+#logoLogIn{
+    text-align: center;
+    padding-left: 40%;
+    width: 60%;
+}
+
+/*
+* Color para el mensaje en los campos vacíos de los formularios
+*/
+
+.invalid-feedback{
+    color: #FFCA45;
+    font-weight: bold;
+}
+
+.form-control {
+    border: solid 3px;
+    border-color: var(--btn-background1);
+}
+
+/*
+* Diseño en el botón de Iniciar Sesión
+*/ 
+
+.btnLogInForm{
+    background-color: var(--btn-background1);
+    color: var(--btn-background2);
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 1.5rem;
+    margin: 5;
+}
+
+.btnLogInForm:hover{
+    background-color: var(--btn-background2);
+    border: var(--btn-background1);
+    border: solid 4px;
+    color: var(--btn-background1);
+    font-weight: bold;
+}
