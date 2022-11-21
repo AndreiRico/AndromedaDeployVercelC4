@@ -28,12 +28,12 @@ const routes: Routes = [
     canActivate: [ValidadorSesionGuard]
   },
   {
-    path: 'editar-usuario',
+    path: 'editar-usuario/:id',
     component: EditarUsuarioComponent,
     canActivate: [ValidadorSesionGuard]
   },
   {
-    path: 'eliminar-usuario',
+    path: 'eliminar-usuario/:id',
     component: EliminarUsuarioComponent,
     canActivate: [ValidadorSesionGuard]
   },

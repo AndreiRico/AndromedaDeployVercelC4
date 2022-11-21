@@ -1,4 +1,4 @@
-<a routerLink="/administracion/crear-producto" class="btn">Nuevo usuario</a>
+<a routerLink="/administracion/crear-usuario" class="btn">Nuevo usuario</a>
 <div class="card">
     <div class="card-action blue-grey center-align white-text">
         <h3>Lista de usuarios</h3>
@@ -51,6 +51,10 @@
                     <td>
                         <a routerLink="/administracion/editar-usuario/{{p.id}}" class="btn"><i
                                 class="material-icons prefix">edit</i></a>
+                    </td>
+                    <td>
+                        <a routerLink="/administracion/eliminar-usuario/{{p.id}}" class="btn red">
+                            <i class="material-icons prefix">delete</i></a>
                     </td>
                 </tr>
             </tbody>
