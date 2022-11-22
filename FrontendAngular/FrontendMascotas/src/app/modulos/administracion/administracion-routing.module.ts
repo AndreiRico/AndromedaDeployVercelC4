@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AdminSessionGuardianGuard } from 'src/app/guardianes/admin-session-guardian.guard';
+import { AssessorSessionGuardianGuard } from 'src/app/guardianes/assessor-session-guardian.guard';
+import { ClientSessionGuardianGuard } from 'src/app/guardianes/client-session-guardian.guard';
 import { ValidadorSesionGuard } from 'src/app/guardianes/validador-sesion.guard';
 
 import { BuscarMascotaComponent } from './mascota/buscar-mascota/buscar-mascota.component';
@@ -31,17 +34,17 @@ const routes: Routes = [
   {
     path: 'crear-usuario',
     component: CrearUsuarioComponent,
-    canActivate: [ValidadorSesionGuard]
+    canActivate: [AdminSessionGuardianGuard]
   },
   {
     path: 'editar-usuario/:id',
     component: EditarUsuarioComponent,
-    canActivate: [ValidadorSesionGuard]
+    canActivate: [AdminSessionGuardianGuard]
   },
   {
     path: 'eliminar-usuario/:id',
     component: EliminarUsuarioComponent,
-    canActivate: [ValidadorSesionGuard]
+    canActivate: [AdminSessionGuardianGuard]
   },
   {
     path: 'listar-usuarios',
@@ -50,11 +53,6 @@ const routes: Routes = [
   },
   //---------- Productos ------------
   {
-    path: 'productos',
-    component: CrearProductoComponent,
-    canActivate: [ValidadorSesionGuard]
-  },
-  {
     path: 'listar-productos',
     component: BuscarProductoComponent,
     canActivate: [ValidadorSesionGuard]
@@ -62,24 +60,19 @@ const routes: Routes = [
   {
     path: 'crear-producto',
     component: CrearProductoComponent,
-    canActivate: [ValidadorSesionGuard]
+    canActivate: [AdminSessionGuardianGuard]
   },
   {
     path: 'editar-producto/:id',
     component: EditarProductoComponent,
-    canActivate: [ValidadorSesionGuard]
+    canActivate: [AdminSessionGuardianGuard]
   },
   {
     path: 'eliminar-producto/:id',
     component: EliminarProductoComponent,
-    canActivate: [ValidadorSesionGuard]
+    canActivate: [AdminSessionGuardianGuard]
   },
   //------------ Planes --------------
-  {
-    path: 'planes',
-    component: CrearPlanComponent,
-    canActivate: [ValidadorSesionGuard]
-  },
   {
     path: 'listar-planes',
     component: BuscarPlanComponent,
@@ -88,23 +81,23 @@ const routes: Routes = [
   {
     path: 'crear-plan',
     component: CrearPlanComponent,
-    canActivate: [ValidadorSesionGuard]
+    canActivate: [AdminSessionGuardianGuard]
   },
   {
     path: 'editar-plan/:id',
     component: EditarPlanComponent,
-    canActivate: [ValidadorSesionGuard]
+    canActivate: [AdminSessionGuardianGuard]
   },
   {
     path: 'eliminar-plan/:id',
     component: EliminarPlanComponent,
-    canActivate: [ValidadorSesionGuard]
+    canActivate: [AdminSessionGuardianGuard]
   },
    //------------ Sucursales --------------
    {
     path: 'sucursales',
     component: CrearSucursalComponent,
-    canActivate: [ValidadorSesionGuard]
+    canActivate: [AdminSessionGuardianGuard]
   },
   {
     path: 'listar-sucursales',
@@ -114,24 +107,19 @@ const routes: Routes = [
   {
     path: 'crear-sucursal',
     component: CrearSucursalComponent,
-    canActivate: [ValidadorSesionGuard]
+    canActivate: [AdminSessionGuardianGuard]
   },
   {
     path: 'editar-sucursal/:id',
     component: EditarSucursalComponent,
-    canActivate: [ValidadorSesionGuard]
+    canActivate: [AdminSessionGuardianGuard]
   },
   {
     path: 'eliminar-sucursal/:id',
     component: EliminarSucursalComponent,
-    canActivate: [ValidadorSesionGuard]
+    canActivate: [AdminSessionGuardianGuard]
   },
   //------------ Mascotas --------------
-  {
-    path: 'mascotas',
-    component: CrearMascotaComponent,
-    canActivate: [ValidadorSesionGuard]
-  },
   {
     path: 'listar-mascotas',
     component: BuscarMascotaComponent,

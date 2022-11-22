@@ -10,6 +10,7 @@ import { SeguridadService } from 'src/app/servicios/seguridad.service';
 })
 export class BarraNavegacionComponent implements OnInit {
   seInicioSesion: boolean = false;
+  sesion: string = '';
   
   subs: Subscription = new Subscription();
 
@@ -18,6 +19,17 @@ export class BarraNavegacionComponent implements OnInit {
     this.subs = this.seguridadServicio.ObtenerDatosUsuarioEnSesion().subscribe((datos: ModeloIdentificar) => {
       this.seInicioSesion = datos.estaIdentificado;
   })
+  //segun roll
+  let datos = this.seguridadServicio.ObtenerInformacionSesion();
+  if (datos) {
+    if (datos.datos.rol == 'client') {
+      this.sesion = 'client'
+    }else if(datos.datos.rol == 'assesor'){
+      this.sesion = 'assessor'
+    }else if(datos.datos.rol == 'admin'){
+      this.sesion = 'admin'
+    }
+  }
   }
 
 }
