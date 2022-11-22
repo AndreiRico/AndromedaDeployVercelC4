@@ -1,7 +1,7 @@
-<a routerLink="/administracion/crear-plan" class="btn">Nuevo Plan</a>
+<a routerLink="/manejo/crear-contacto" class="btn">Nuevo Prospecto</a>
 <div class="card">
     <div class="card-action blue-grey center-align white-text">
-        <h3>Lista de planes</h3>
+        <h3>Lista de Prospectos</h3>
     </div>
     <div class="card-content">
 
@@ -12,10 +12,16 @@
                         Nombre
                     </th>
                     <th>
-                        Descripcion
+                        Apellido
                     </th>
                     <th>
-                        Precio
+                        Correo
+                    </th>
+                    <th>
+                        Celular
+                    </th>
+                    <th>
+                        Comentario
                     </th>
                     <th>
                         Editar
@@ -26,22 +32,28 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let pl of listadoRegistrosPl">
+                <tr *ngFor="let pr of listadoRegistrosPr">
                     <td>
-                        {{pl.nombre}}
+                        {{pr.nombre}}
                     </td>
                     <td>
-                        {{pl.descripcion}}
+                        {{pr.apellido}}
                     </td>
                     <td>
-                        {{pl.precio}}
+                        {{pr.correo}}
                     </td>
                     <td>
-                        <a routerLink="/administracion/editar-plan/{{pl.id}}" class="btn"><i
+                        {{pr.celular}}
+                    </td>
+                    <td>
+                        {{pr.comentario}}
+                    </td>
+                    <td>
+                        <a routerLink="/manejo/editar-contacto/{{pr.id}}" class="btn"><i
                                 class="material-icons prefix">edit</i></a>
                     </td>
                     <td>
-                        <a routerLink="/administracion/eliminar-plan/{{pl.id}}" class="btn red">
+                        <a routerLink="/manejo/eliminar-contacto/{{pr.id}}" class="btn red">
                             <i class="material-icons prefix">delete</i></a>
                     </td>
                 </tr>
@@ -50,3 +62,4 @@
 
     </div>
 </div>
+

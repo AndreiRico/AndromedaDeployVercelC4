@@ -54,7 +54,7 @@ export class ProspectoController {
   
 
   //notificar usuario por correo
-  let destino = "jdvalenzuela83@misena.edu.co";
+  let destino = "delmarosorio@gmail.com";
   let asunto = 'Solicito información';
   let contenido = `Hola mi nombre es ${prospecto.nombre} ${prospecto.apellido} solicito información sobre ${prospecto.comentario}, mi número es ${prospecto.celular}`
   fetch(`http://127.0.0.1:5000/email?correo_destino=${destino}&asunto=${asunto}&contenido=${contenido}`)
@@ -97,7 +97,7 @@ async find(
 }
 
 //--------------------------------------------------------
-@authenticate("admin", "assessor")
+//@authenticate("admin", "assessor")
 
 @patch('/prospectos')
 @response(200, {
@@ -120,7 +120,7 @@ prospecto: Prospecto,
 
 
 //--------------------------------------------------------
-@authenticate("admin", "assessor")
+//@authenticate("admin", "assessor")
 
 @get('/prospectos/{id}')
 @response(200, {
@@ -139,7 +139,7 @@ async findById(
 }
 
 //--------------------------------------------------------
-@authenticate("admin", "assessor")
+//@authenticate("admin", "assessor")
 
 @patch('/prospectos/{id}')
 @response(204, {
@@ -160,7 +160,7 @@ prospecto: Prospecto,
 }
 
 //--------------------------------------------------------
-@authenticate("admin", "assessor")
+//@authenticate("admin", "assessor")
 
 @put('/prospectos/{id}')
 @response(204, {
@@ -174,7 +174,7 @@ async replaceById(
 }
 
 //--------------------------------------------------------
-@authenticate("admin")
+//@authenticate("admin")
 
 @del('/prospectos/{id}')
 @response(204, {

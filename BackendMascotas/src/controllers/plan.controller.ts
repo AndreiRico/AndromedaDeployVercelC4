@@ -168,7 +168,7 @@ export class PlanController {
 
   //------------------ ELIMINAR UN PLAN ---------------
 
-  @authenticate("admin")
+  //@authenticate("admin")
 
   @del('/plans/{id}')
   @response(204, {
