@@ -32,7 +32,7 @@ export class IdentificacionComponent implements OnInit {
       this.servicioSeguridad.AlmacenarSesion(datos);
       this.router.navigate(['/inicio']);
     }, (error: any) => {
-      alert("Datos invalidos!!")
+      alert("Error al iniciar sesión compruebe que los datos son correctos")
     })
   }
 }

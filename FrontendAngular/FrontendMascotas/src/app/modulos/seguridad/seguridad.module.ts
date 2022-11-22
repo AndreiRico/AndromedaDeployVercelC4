@@ -8,13 +8,15 @@ import { RecuperarContrasenaComponent } from './recuperar-contrasena/recuperar-c
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CerrarSesionComponent } from './cerrar-sesion/cerrar-sesion.component';
+import { RegistroComponent } from './registro/registro.component';
 
 @NgModule({
   declarations: [
     IdentificacionComponent,
     CambioContrasenaComponent,
     RecuperarContrasenaComponent,
-    CerrarSesionComponent
+    CerrarSesionComponent,
+    RegistroComponent
   ],
   imports: [
     CommonModule,

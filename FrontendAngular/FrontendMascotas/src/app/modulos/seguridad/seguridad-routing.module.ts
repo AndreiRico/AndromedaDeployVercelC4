@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { CambioContrasenaComponent } from './cambio-contrasena/cambio-contrasena.component';
 import { CerrarSesionComponent } from './cerrar-sesion/cerrar-sesion.component';
 import { IdentificacionComponent } from './identificacion/identificacion.component';
+import { RegistroComponent } from './registro/registro.component';
 
 const routes: Routes = [
   {
@@ -16,6 +17,10 @@ const routes: Routes = [
   {
     path: 'cambio-contrasena',
     component: CambioContrasenaComponent
+  },
+  {
+    path: 'registro',
+    component: RegistroComponent
   }
 ];
 

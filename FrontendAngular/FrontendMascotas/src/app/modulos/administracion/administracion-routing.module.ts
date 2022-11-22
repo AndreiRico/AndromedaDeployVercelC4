@@ -10,6 +10,7 @@ import { EliminarPlanComponent } from './planes/eliminar-plan/eliminar-plan.comp
 import { BuscarProductoComponent } from './productos/buscar-producto/buscar-producto.component';
 import { CrearProductoComponent } from './productos/crear-producto/crear-producto.component';
 import { EditarProductoComponent } from './productos/editar-producto/editar-producto.component';
+import { EliminarProductoComponent } from './productos/eliminar-producto/eliminar-producto.component';
 
 import { BuscarSucursalComponent } from './sucursal/buscar-sucursal/buscar-sucursal.component';
 import { CrearSucursalComponent } from './sucursal/crear-sucursal/crear-sucursal.component';
@@ -61,6 +62,11 @@ const routes: Routes = [
   {
     path: 'editar-producto/:id',
     component: EditarProductoComponent,
+    canActivate: [ValidadorSesionGuard]
+  },
+  {
+    path: 'eliminar-producto/:id',
+    component: EliminarProductoComponent,
     canActivate: [ValidadorSesionGuard]
   },
   //------------ Planes --------------

@@ -32,7 +32,7 @@ export class ProductoService {
   }
 
   ActualizarProducto(producto: ModeloProducto): Observable<ModeloProducto>{
-    return this.http.put<ModeloProducto>(`${this.url}/producto-servicios/${producto.id}`, producto, {
+    return this.http.patch<ModeloProducto>(`${this.url}/producto-servicios/${producto.id}`, producto, {
       headers: new HttpHeaders({
         'Authorization': `Bearer ${this.token}`
       })
