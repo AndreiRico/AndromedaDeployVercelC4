@@ -19,6 +19,10 @@ import { CrearSucursalComponent } from './sucursal/crear-sucursal/crear-sucursal
 import { EditarSucursalComponent } from './sucursal/editar-sucursal/editar-sucursal.component';
 import { EliminarSucursalComponent } from './sucursal/eliminar-sucursal/eliminar-sucursal.component';
 import { BuscarSucursalComponent } from './sucursal/buscar-sucursal/buscar-sucursal.component';
+import { CrearMascotaComponent } from './mascota/crear-mascota/crear-mascota.component';
+import { EditarMascotaComponent } from './mascota/editar-mascota/editar-mascota.component';
+import { EliminarMascotaComponent } from './mascota/eliminar-mascota/eliminar-mascota.component';
+import { BuscarMascotaComponent } from './mascota/buscar-mascota/buscar-mascota.component';
 
 
 @NgModule({
@@ -38,7 +42,11 @@ import { BuscarSucursalComponent } from './sucursal/buscar-sucursal/buscar-sucur
     CrearSucursalComponent,
     EditarSucursalComponent,
     EliminarSucursalComponent,
-    BuscarSucursalComponent
+    BuscarSucursalComponent,
+    CrearMascotaComponent,
+    EditarMascotaComponent,
+    EliminarMascotaComponent,
+    BuscarMascotaComponent
   ],
   imports: [
     CommonModule,

@@ -23,6 +23,9 @@
                     <th>
                         Editar
                     </th>
+                    <th>
+                        Eliminar
+                    </th>
                 </tr>
             </thead>
             <tbody>
@@ -42,6 +45,10 @@
                     <td>
                         <a routerLink="/administracion/editar-sucursal/{{s.id}}" class="btn"><i
                                 class="material-icons prefix">edit</i></a>
+                    </td>
+                    <td>
+                        <a routerLink="/administracion/eliminar-sucursal/{{s.id}}" class="btn red">
+                            <i class="material-icons prefix">delete</i></a>
                     </td>
                 </tr>
             </tbody>

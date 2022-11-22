@@ -3,4 +3,5 @@ export class ModeloPlan{
     nombre?: string;
     descripcion?: string;
     precio?: number;
+    
 }

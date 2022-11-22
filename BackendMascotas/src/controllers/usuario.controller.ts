@@ -66,13 +66,14 @@ export class UsuarioController {
   
   //--------------- Recuperar clave -----------------
 
-  @post('/recuperarClave', {
+ @post('/recuperarClave',{
     responses: {
       '200': {
         description: "Recuperación de clave de usuarios"
       }
     }
   })
+
   async recuperarClave(
     @requestBody() correo: string
   ): Promise<Boolean> {
@@ -81,18 +82,38 @@ export class UsuarioController {
         correo: correo
       }
     });
+
     if (usuario) {
-      let clave = this.servicioAutenticacion.GenerarContrasena();
-      let claveCifrada = this.servicioAutenticacion.CifrarContrasena(clave);
+      let contrasena = this.servicioAutenticacion.GenerarContrasena();
+      let claveCifrada = this.servicioAutenticacion.CifrarContrasena(contrasena);
       usuario.contrasena = claveCifrada;
-      await this.usuarioRepository.updateById(usuario.id, usuario);
+      let u = await this.usuarioRepository.updateById(usuario.id, usuario);
 
       //consumir el microservicio de notificaciones
       //Enviar la nueva clave por SMS
+
+      //notificar usuario por correo
+    let destino = usuario.correo;
+    let asunto = 'Datos de registro de la plataforma';
+    let contenido = `Hola ${usuario.nombre} ${usuario.apellido} bienvenido a mascota feliz, su usuario es ${usuario.correo} y su nueva contraseña es ${contrasena}`
+    fetch(`http://127.0.0.1:5000/email?correo_destino=${destino}&asunto=${asunto}&contenido=${contenido}`)
+      .then((data:any)=>{
+        console.log(data);
+      })
+    
+    // notificar ususario por sms
+    let destino_sms = usuario.telefono;
+    let contenido_sms = `Hola ${usuario.nombre} ${usuario.apellido} bienvenido a mascota feliz, su usuario es ${usuario.correo} y su nueva contraseña es ${contrasena}`
+    fetch(`http://127.0.0.1:5000/mensajetxt?celular_destino=${destino_sms}&contenido=${contenido_sms}`)
+      .then((data:any)=>{
+        console.log(data);
+      })
+      //return u;
       return true;
     }
     return false;
-  }  
+  } 
+
   //--------------- Crear Usuarios ---------------------------
 
   //@authenticate("admin","assessor","client")
@@ -128,7 +149,6 @@ export class UsuarioController {
       .then((data:any)=>{
         console.log(data);
       })
-      //return u; 
     
     // notificar ususario por sms
     let destino_sms = usuario.telefono;
@@ -137,13 +157,13 @@ export class UsuarioController {
       .then((data:any)=>{
         console.log(data);
       })
+
       return u; 
-    
   }
 
   //----------------- Mostrar Cantidad de Usuarios -----------------------
 
-  @authenticate("admin","assessor")
+  //@authenticate("admin","assessor")
 
   @get('/usuarios/count')
   @response(200, {
@@ -180,7 +200,7 @@ export class UsuarioController {
 
   //------------------- Actualizar Usuarios ---------------------------
 
-  @authenticate("admin","assessor")
+  //@authenticate("admin","assessor")
 
   @patch('/usuarios')
   @response(200, {
@@ -203,7 +223,7 @@ export class UsuarioController {
 
   //-------------------- Mostrar el Usuario de ese ID --------------------
 
-  @authenticate("admin","assessor")
+  //@authenticate("admin","assessor")
 
   @get('/usuarios/{id}')
   @response(200, {
@@ -223,7 +243,7 @@ export class UsuarioController {
 
   //--------------- Actualizar solo los datos especificados, de ese {id} de Usuario -------------------
 
-  @authenticate("admin","assessor")
+  //@authenticate("admin","assessor")
 
   @patch('/usuarios/{id}')
   @response(204, {
@@ -243,9 +263,9 @@ export class UsuarioController {
     await this.usuarioRepository.updateById(id, usuario);
   }
 
-  //----- Actualizar reemplazando los datos especificados, de ese {id}} de Usuario. obliga a especificar todos los atributos------
+  //----- Actualiza reemplazando los datos de ese {id} de Usuario. Actualiza todos los campos------
 
-  @authenticate("admin","assessor")
+  //@authenticate("admin","assessor")
 
   @put('/usuarios/{id}')
   @response(204, {
@@ -260,7 +280,7 @@ export class UsuarioController {
 
   //--------------- Eliminar Indicando el ID del Usuario -------------------
 
-  @authenticate("admin","assessor")
+  //@authenticate("admin","assessor")
 
   @del('/usuarios/{id}')
   @response(204, {

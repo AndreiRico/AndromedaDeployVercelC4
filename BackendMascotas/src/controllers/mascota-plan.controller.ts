@@ -20,7 +20,7 @@ export class MascotaPlanController {
   ) { }
   
   //--------------------------------------------------------
-  @authenticate("assessor", "client", "admin")
+  //@authenticate("assessor", "client", "admin")
 
   @get('/mascotas/{id}/plan', {
     responses: {

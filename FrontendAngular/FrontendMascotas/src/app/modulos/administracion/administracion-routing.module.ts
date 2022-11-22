@@ -2,6 +2,11 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ValidadorSesionGuard } from 'src/app/guardianes/validador-sesion.guard';
 
+import { BuscarMascotaComponent } from './mascota/buscar-mascota/buscar-mascota.component';
+import { CrearMascotaComponent } from './mascota/crear-mascota/crear-mascota.component';
+import { EditarMascotaComponent } from './mascota/editar-mascota/editar-mascota.component';
+import { EliminarMascotaComponent } from './mascota/eliminar-mascota/eliminar-mascota.component';
+
 import { BuscarPlanComponent } from './planes/buscar-plan/buscar-plan.component';
 import { CrearPlanComponent } from './planes/crear-plan/crear-plan.component';
 import { EditarPlanComponent } from './planes/editar-plan/editar-plan.component';
@@ -85,7 +90,7 @@ const routes: Routes = [
     canActivate: [ValidadorSesionGuard]
   },
   {
-    path: 'eliminar-plan',
+    path: 'eliminar-plan/:id',
     component: EliminarPlanComponent,
     canActivate: [ValidadorSesionGuard]
   },
@@ -111,8 +116,34 @@ const routes: Routes = [
     canActivate: [ValidadorSesionGuard]
   },
   {
-    path: 'eliminar-sucursal',
+    path: 'eliminar-sucursal/:id',
     component: EliminarSucursalComponent,
+    canActivate: [ValidadorSesionGuard]
+  },
+  //------------ Mascotas --------------
+  {
+    path: 'mascotas',
+    component: CrearMascotaComponent,
+    canActivate: [ValidadorSesionGuard]
+  },
+  {
+    path: 'listar-mascotas',
+    component: BuscarMascotaComponent,
+    canActivate: [ValidadorSesionGuard]
+  },
+  {
+    path: 'crear-mascota',
+    component: CrearMascotaComponent,
+    canActivate: [ValidadorSesionGuard]
+  },
+  {
+    path: 'editar-mascota/:id',
+    component: EditarMascotaComponent,
+    canActivate: [ValidadorSesionGuard]
+  },
+  {
+    path: 'eliminar-mascota/:id',
+    component: EliminarMascotaComponent,
     canActivate: [ValidadorSesionGuard]
   }
 

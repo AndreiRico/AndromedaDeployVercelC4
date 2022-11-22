@@ -1,0 +1,65 @@
+<a routerLink="/manejo/crear-contacto" class="btn">Nuevo Prospecto</a>
+<div class="card">
+    <div class="card-action blue-grey center-align white-text">
+        <h3>Lista de Prospectos</h3>
+    </div>
+    <div class="card-content">
+
+        <table class="highlight white">
+            <thead>
+                <tr>
+                    <th>
+                        Nombre
+                    </th>
+                    <th>
+                        Apellido
+                    </th>
+                    <th>
+                        Correo
+                    </th>
+                    <th>
+                        Celular
+                    </th>
+                    <th>
+                        Comentario
+                    </th>
+                    <th>
+                        Editar
+                    </th>
+                    <th>
+                        Eliminar
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let pr of listadoRegistrosPr">
+                    <td>
+                        {{pr.nombre}}
+                    </td>
+                    <td>
+                        {{pr.apellido}}
+                    </td>
+                    <td>
+                        {{pr.correo}}
+                    </td>
+                    <td>
+                        {{pr.celular}}
+                    </td>
+                    <td>
+                        {{pr.comentario}}
+                    </td>
+                    <td>
+                        <a routerLink="/manejo/editar-contacto/{{pr.id}}" class="btn"><i
+                                class="material-icons prefix">edit</i></a>
+                    </td>
+                    <td>
+                        <a routerLink="/manejo/eliminar-contacto/{{pr.id}}" class="btn red">
+                            <i class="material-icons prefix">delete</i></a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+</div>
+
