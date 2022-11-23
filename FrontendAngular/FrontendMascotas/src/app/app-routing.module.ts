@@ -1,12 +1,17 @@
-import { NgModule } from '@angular/core';
+  import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ErrorComponent } from './plantilla/error/error.component';
 import { InicioComponent } from './plantilla/inicio/inicio.component';
+import { VisionEmpresarialComponent } from './plantilla/vision-empresarial/vision-empresarial.component';
 
 const routes: Routes = [
   {
     path: "inicio",
     component: InicioComponent
+  },
+  {
+    path: "about",
+    component: VisionEmpresarialComponent
   },
   {
     path: "",
