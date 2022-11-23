@@ -56,7 +56,7 @@ export class ProspectoController {
   //notificar usuario por correo
   let destino = "delmarosorio@gmail.com";
   let asunto = 'Solicito información';
-  let contenido = `Hola mi nombre es ${prospecto.nombre} ${prospecto.apellido} solicito información sobre ${prospecto.comentario}, mi número es ${prospecto.celular}`
+  let contenido = `Hola mi nombre es ${prospecto.nombre} ${prospecto.apellido} solicito información sobre: ${prospecto.comentario}, mi número es ${prospecto.celular}`
   fetch(`http://127.0.0.1:5000/email?correo_destino=${destino}&asunto=${asunto}&contenido=${contenido}`)
   .then((data: any) => {
     console.log(data);

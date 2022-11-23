@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { ModeloIdentificar } from 'src/app/modelos/identificar.modelo';
 import { SeguridadService } from 'src/app/servicios/seguridad.service';
-
+declare const M:any;
 @Component({
   selector: 'app-barra-navegacion',
   templateUrl: './barra-navegacion.component.html',
@@ -10,8 +10,8 @@ import { SeguridadService } from 'src/app/servicios/seguridad.service';
 })
 export class BarraNavegacionComponent implements OnInit {
   seInicioSesion: boolean = false;
-  sesion: string = '';
-  
+  sesion: boolean = false;
+  datos: any;
   subs: Subscription = new Subscription();
 
   constructor(private seguridadServicio: SeguridadService){}
@@ -20,16 +20,19 @@ export class BarraNavegacionComponent implements OnInit {
       this.seInicioSesion = datos.estaIdentificado;
   })
   //segun roll
-  let datos = this.seguridadServicio.ObtenerInformacionSesion();
-  if (datos) {
-    if (datos.datos.rol == 'client') {
-      this.sesion = 'client'
-    }else if(datos.datos.rol == 'assesor'){
-      this.sesion = 'assessor'
-    }else if(datos.datos.rol == 'admin'){
-      this.sesion = 'admin'
+  this.datos = this.seguridadServicio.ObtenerInformacionSesion();
+  if (this.datos) {
+    if (this.datos.datos.rol == 'client') {
+      this.sesion = false;
+    }else if(this.datos.datos.rol == 'assesor'){
+      this.sesion = true;
+    }else if(this.datos.datos.rol == 'admin'){
+      this.sesion = true;
     }
   }
+  M.AutoInit();
+  var elems = document.querySelectorAll('.sidenav');
+  var instances = M.Sidenav.init(elems);
   }
 
 }

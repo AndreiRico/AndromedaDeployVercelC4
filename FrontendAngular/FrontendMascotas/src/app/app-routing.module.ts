@@ -31,6 +31,10 @@ const routes: Routes = [
     loadChildren: () => import("./modulos/manejo/manejo.module").then(x => x.ManejoModule)
   },
   {
+    path: 'cliente',
+    loadChildren: () => import("./modulos/cliente/cliente.module").then(x => x.ClienteModule)
+  },
+  {
     path: '**',
     component: ErrorComponent
   }

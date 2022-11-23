@@ -93,8 +93,8 @@ const routes: Routes = [
     component: EliminarPlanComponent,
     canActivate: [AdminSessionGuardianGuard]
   },
-   //------------ Sucursales --------------
-   {
+  //------------ Sucursales --------------
+  {
     path: 'sucursales',
     component: CrearSucursalComponent,
     canActivate: [AdminSessionGuardianGuard]
@@ -139,8 +139,7 @@ const routes: Routes = [
     path: 'eliminar-mascota/:id',
     component: EliminarMascotaComponent,
     canActivate: [ValidadorSesionGuard]
-  }
-
+  },
 ];
 
 @NgModule({
