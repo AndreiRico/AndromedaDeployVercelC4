@@ -1,0 +1,60 @@
+<a routerLink="/cliente/crear-mascota" class="btn">Afiliar Mascota</a>
+<div class="card">
+    <div class="card-action blue-grey center-align white-text">
+        <h3>Tus Mascotas Afiliadas</h3>
+    </div>
+    <div class="card-content">
+
+        <table class="highlight white">
+            <thead>
+                <tr>
+                    <th>
+                        Foto
+                    </th>
+                    <th>
+                        Nombre
+                    </th>
+                    <th>
+                        Especie
+                    </th>
+                    <th>
+                        Estado
+                    </th>
+                    <th>
+                        Plan
+                    </th>
+                    <th>
+                        Comentario
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let m of listadoRegistros">
+                    
+                    <td>
+                        <img src="{{m.foto}}" class="fotoMascota" />
+                    </td>
+                    <td>
+                        {{m.nombre}}
+                    </td>
+                    <td>
+                        {{m.especie}}
+                    </td>
+                    <td>
+                        {{m.estado}}
+                    </td>
+                    <td>
+                        {{m.plan? m.plan.nombre:''}}
+                    </td>
+                    <td>
+                        {{m.comentario}}
+                    </td>
+                    <td>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+</div>
+

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ModeloMascota } from 'src/app/modelos/mascota.modelo';
-import { MascotaService } from 'src/app/servicios/mascota.service';
+import { ModeloMascotaCliente } from 'src/app/modelos/mascotaCliente.modelo';
+import { MascotaClienteService } from 'src/app/servicios/mascota-cliente.service';
 
 declare const M: any;
 
@@ -11,7 +11,7 @@ declare const M: any;
   templateUrl: './editar-mascota.component.html',
   styleUrls: ['./editar-mascota.component.css']
 })
-export class EditarMascotaComponent implements OnInit {
+export class EditarMascotaComponent implements OnInit{
   id:string = '';
 
   optionsEstado = [
@@ -33,67 +33,61 @@ export class EditarMascotaComponent implements OnInit {
     {name: 'Plan Oro', value: '636eac03fb4a38563cc011e7'},
     {name: 'Diamante', value: '636ebc93fb4a38563cc011e8'},
   ];
-  
+
   fgValidador: FormGroup = this.fb.group({
-    'id': ['', [Validators.required]],
-    'nombre': ['', [Validators.required]],
-    'foto': ['', [Validators.required]],
-    'especie': ['', [Validators.required]],
-    'estado': ['', [Validators.required]],
-    'plan': ['', [Validators.required]],
-    'comentario': ['', [Validators.required]]
+    'nombre': ['',[Validators.required]],
+    'foto': ['',[Validators.required]],
+    'especie': ['',[Validators.required]],
+//FALTA    'plan': ['', [Validators.required]]
   });
-  
-  constructor(private fb: FormBuilder,
-    private servicioMascota: MascotaService,
+
+  constructor(private fb: FormBuilder, 
+    private servicioMascotaCliente: MascotaClienteService,
     private router: Router,
-    private route: ActivatedRoute) { }
-  
+    private route: ActivatedRoute) {}
+
   ngOnInit(): void {
     this.id = this.route.snapshot.params["id"];
-    this.BuscarMascota();
-    setTimeout(()=>{
+    this.BuscarMascotaCliente();
+    setTimeout(() => {
       const elems = document.querySelectorAll('select');
       const instances = M.FormSelect.init(elems);
-      //const instances = M.FormSelect.init(elems, 'options');
     });
   }
 
-  BuscarMascota(){
-    this.servicioMascota.ObtenerRegistrosPorId(this.id).subscribe((datos: ModeloMascota) => {
+  BuscarMascotaCliente(){
+    this.servicioMascotaCliente.obtenerRegistrosPorId(this.id).subscribe((datos: ModeloMascotaCliente) => {
       this.fgValidador.controls["id"].setValue(this.id);
       this.fgValidador.controls["nombre"].setValue(datos.nombre);
       this.fgValidador.controls["foto"].setValue(datos.foto);
       this.fgValidador.controls["especie"].setValue(datos.especie);
-      this.fgValidador.controls["plan"].setValue(datos.planId);
-      this.fgValidador.controls["estado"].setValue(datos.estado);
-      this.fgValidador.controls["comentario"].setValue(datos.comentario);
-    })
+    });
   }
-  
-  EditarMascota(){
+
+  EditarMascotaCliente(){
     let nombre = this.fgValidador.controls["nombre"].value;
     let foto = this.fgValidador.controls["foto"].value;
     let especie = this.fgValidador.controls["especie"].value;
-    let estado = this.fgValidador.controls["estado"].value;
-    let plan = this.fgValidador.controls["plan"].value;
-    let comentario = this.fgValidador.controls["comentario"].value;
-    let m = new ModeloMascota();
-  
-    m.nombre = nombre;
-    m.foto = foto;
-    m.especie = especie;
-    m.estado = estado;
-    m.planId = plan;
-    m.comentario = comentario;
-    m.id = this.id;
-  
-    this.servicioMascota.ActualizarMascota(m).subscribe((datos: ModeloMascota) => {
+//FALTA  let planId = 
+//FALTA  let usuarioId =
+    let mc = new ModeloMascotaCliente();
+
+    mc.nombre = nombre;
+    mc.foto = foto;
+    mc.especie = especie;
+    mc.estado = "pendiente";
+    mc.comentario = '';
+    mc.id = this.id;
+//FALTA   mc.planId = planId;
+//FALTA   mc.usuarioId = usuarioId;
+
+    this.servicioMascotaCliente.ActualizarMascotaCliente(mc).subscribe((datos: ModeloMascotaCliente) => {
       alert("Mascota actualizada correctamente");
-      this.router.navigate(["/administracion/listar-mascotas"]);
+      this.router.navigate(["/cliente/listar-mascotas"]);
     }, (error: any) => {
-      alert("Error actualizando la mascota");
+      alert("Error almacenado la mascota");
     })
   }
-    
+
 }
+

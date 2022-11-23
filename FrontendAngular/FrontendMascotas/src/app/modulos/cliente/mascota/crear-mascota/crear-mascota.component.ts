@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ModeloMascota } from 'src/app/modelos/mascota.modelo';
+import { ModeloMascotaCliente } from 'src/app/modelos/mascotaCliente.modelo';
 import { ModeloPlan } from 'src/app/modelos/plan.modelo';
-import { MascotaService } from 'src/app/servicios/mascota.service';
+import { MascotaClienteService } from 'src/app/servicios/mascota-cliente.service';
 import { PlanService } from 'src/app/servicios/plan.service';
 
 declare const M: any;
@@ -13,6 +13,7 @@ declare const M: any;
   templateUrl: './crear-mascota.component.html',
   styleUrls: ['./crear-mascota.component.css']
 })
+
 export class CrearMascotaComponent implements OnInit {
 
   optionsEstado = [
@@ -35,61 +36,59 @@ export class CrearMascotaComponent implements OnInit {
     {name: 'Diamante', value: '636ebc93fb4a38563cc011e8'},
   ];
 
-  listadoRegistrosPl : ModeloPlan[] = [];
-  //---------------------------------------------
-
+  //listadoRegistrosPl : ModeloPlan[];
+  //----------------------------------------------
+  
   fgValidador: FormGroup = this.fb.group({
-    'nombre': ['', [Validators.required]],
-    'foto': ['', [Validators.required]],
-    'especie': ['', [Validators.required]],
-    'estado': ['', [Validators.required]],
-    'comentario': ['', [Validators.required]],
+    'nombre': ['',[Validators.required]],
+    'foto': ['',[Validators.required]],
+    'especie': ['',[Validators.required]],
     'plan': ['', [Validators.required]]
   });
 
-  constructor(private fb: FormBuilder,
-    private servicioMascota: MascotaService,
+  constructor(private fb: FormBuilder, 
+    private servicioMascotaCliente: MascotaClienteService,
     private router: Router,
     private servicioPlan : PlanService) { }
 
   ngOnInit(): void {
     this.ObtenerListaPlanes();
-    setTimeout(()=>{
+    setTimeout(() => {
       const elems = document.querySelectorAll('select');
       const instances = M.FormSelect.init(elems);
     });
-    
+
   }
 
   ObtenerListaPlanes(){
     this.servicioPlan.ObtenerRegistros().subscribe((datos: ModeloPlan[]) => {
-      this.listadoRegistrosPl = datos;
+      //this.listadoRegistrosPl = datos;
     });
-    console.log(this.listadoRegistrosPl)
+    //console.log(this.listadoRegistrosPl)
   }
 
-  GuardarMascota(){
+  GuardarMascotaCliente(){
     let nombre = this.fgValidador.controls["nombre"].value;
     let foto = this.fgValidador.controls["foto"].value;
     let especie = this.fgValidador.controls["especie"].value;
-    let estado = this.fgValidador.controls["estado"].value;
-    let comentario = this.fgValidador.controls["comentario"].value;
     let planId = this.fgValidador.controls["plan"].value;
-    let m = new ModeloMascota();
+//FALTA  let usuarioId =
+    let mc = new ModeloMascotaCliente();
 
-    m.nombre = nombre;
-    m.foto = foto;
-    m.especie = especie;
-    m.estado = estado;
-    m.comentario = comentario;
-    m.planId = planId;
+    mc.nombre = nombre;
+    mc.foto = foto;
+    mc.especie = especie;
+    mc.estado = "pendiente";
+    mc.comentario = '';
+    mc.planId = planId;
+//FALTA   mc.usuarioId = usuarioId;
 
-    this.servicioMascota.CrearMascota(m).subscribe((datos: ModeloMascota) => {
+    this.servicioMascotaCliente.CrearMascotaCliente(mc).subscribe((datos: ModeloMascotaCliente) => {
       alert("Mascota almacenada correctamente");
-      this.router.navigate(["/administracion/listar-mascotas"]);
+      this.router.navigate(["/cliente/listar-mascotas"]);
     }, (error: any) => {
       alert("Error almacenando la mascota");
     })
   }
-
 }
+
