@@ -6,57 +6,64 @@
             </div>
 
             <div class="card-content">
-                <form [formGroup]="fgValidador" (ngSubmit)="EditarMascota()">
+                <form [formGroup]="fgValidador" (ngSubmit)="EditarMascotaCliente()">
                     <input type="hidden" formControlName="id" />
                                       
                     <div class="input-field">
                         <i class="material-icons prefix">text_fields</i>
-                        <label class="active" for="nombre">Nombre</label>
+                        <label class="active" for="nombre" class="active">Nombre de la mascota</label>
                         <input formControlName="nombre" type="text" id="nombre">
                     </div><br>
                     
                     <div class="input-field">
                         <i class="material-icons prefix">account_box</i>
-                        <label class="active" for="foto">Foto</label>
+                        <label class="active" for="foto" class="active">Foto de la mascota</label>
                         <input formControlName="foto" type="text" id="foto">
                     </div><br>
-
+                    
                     <div class="input-field">
                         <i class="material-icons prefix">pets</i>
                         <select formControlName="especie" type="text" name="especie" id="especie">
                             <option value="" disabled selected>Seleccione Perro o Gato</option>
                             <option value="{{option.value}}" *ngFor="let option of optionsEspecie">{{option.name}}</option>
                         </select>
-                        <label class="active" for="rol">Especie</label>
+                        <label class="active" for="especie">Especie</label>
                     </div><br>
-
+                    
                     <div class="input-field">
                         <i class="material-icons prefix">pets</i>
                         <select formControlName="plan" type="text" name="plan" id="plan">
                             <option value="" disabled selected>Seleccione el plan</option>
                             <option value="{{option.value}}" *ngFor="let option of optionsPlan">{{option.name}}</option>
                         </select>
+                        <label class="active" for="especie">Plan</label>
+                    </div><br>
+                <!--------------------------- Para listar los Planes que vienen de otra colección ----------------------------
+                    <div class="input-field">
+                        <i class="material-icons prefix">style</i>
+                        <select formControlName="plan" type="text" name="plan" id="plan">
+                            <option value="" disabled selected>Seleccione el plan</option>
+                            <option value="{{option.id}}" *ngFor="let option of listadoRegistrosPl">{{option.nombre}}</option>
+                        </select>
                         <label class="active" for="plan">Plan</label>
                     </div><br>
-
-                   <div class="input-field">
-                        <i class="material-icons prefix">spellcheck</i>
-                        <select formControlName="estado" type="text" name="estado" id="estado">
-                            <option value="" disabled selected>Estado de la afiliación</option>
-                            <option value="{{option.value}}" *ngFor="let option of optionsEstado">{{option.name}}</option>
-                        </select>
-                        <label class="active" for="rol">Estado</label>
+                ------------------------------------------------------------------------------------------------------------>
+                 
+                <!--<div class="input-field">
+                        <i class="material-icons prefix">description</i>
+                        <label class="active" for="estado">Estado de Afiliación</label>
+                        <input formControlName="estado" type="text" id="estado">
                     </div><br>
-
+                    
                     <div class="input-field">
-                        <i class="material-icons prefix">email</i>
+                        <i class="material-icons prefix">description</i>
                         <label class="active" for="comentario">Comentario</label>
                         <input formControlName="comentario" type="text" id="comentario">
                     </div><br>
-                    
+                -->    
                     <div class="form-field">
                         <button [disabled]="!fgValidador.valid" type="submit"
-                            class="btn-large blue waves-effect waves-dark" style="width:100%;">Actualizar</button>
+                            class="btn-large blue waves-effect waves-dark" style="width:100%;">Solicitar Afiliación</button>
                     </div><br>
                 </form>
             </div>

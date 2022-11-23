@@ -26,18 +26,38 @@
                             <option value="" disabled selected>Seleccione Perro o Gato</option>
                             <option value="{{option.value}}" *ngFor="let option of optionsEspecie">{{option.name}}</option>
                         </select>
-                        <label class="active" for="rol">Especie</label>
+                        <label class="active" for="especie">Especie</label>
                     </div><br>
 
-                   <div class="input-field">
+                    <div class="input-field">
+                        <i class="material-icons prefix">pets</i>
+                        <select formControlName="plan" type="text" name="plan" id="plan">
+                            <option value="" disabled selected>Seleccione el plan</option>
+                            <option value="{{option.value}}" *ngFor="let option of optionsPlan">{{option.name}}</option>
+                        </select>
+                        <label class="active" for="especie">Plan</label>
+                    </div><br>
+
+                <!--------------------------- Para listar los Planes que vienen de otra colección -----------------------------
+                    <div class="input-field">
+                        <i class="material-icons prefix">style</i>
+                        <select formControlName="plan" type="text" name="plan" id="plan">
+                            <option value="" disabled selected>Seleccione el plan</option>
+                            <option value="{{option.id}}" *ngFor="let option of listadoRegistrosPl">{{option.nombre}}</option>
+                        </select>
+                        <label class="active" for="plan">Plan</label>
+                    </div><br>
+                ------------------------------------------------------------------------------------------------------------>
+
+                <div class="input-field">
                         <i class="material-icons prefix">spellcheck</i>
                         <select formControlName="estado" type="text" name="estado" id="estado">
                             <option value="" disabled selected>Estado de la afiliación</option>
                             <option value="{{option.value}}" *ngFor="let option of optionsEstado">{{option.name}}</option>
                         </select>
-                        <label class="active" for="rol">Estado</label>
+                        <label class="active" for="estado">Estado</label>
                     </div><br>
-                
+
                     <div class="input-field">
                         <i class="material-icons prefix">description</i>
                         <label class="active" for="comentario">Comentario</label>
