@@ -28,7 +28,7 @@ export class UsuarioMascotaController {
   ) { }
 
   //--------------------------------------------------------
-  @authenticate("assessor", "client", "admin")
+  //@authenticate("assessor", "client", "admin")
 
   @get('/usuarios/{id}/mascotas', {
     responses: {

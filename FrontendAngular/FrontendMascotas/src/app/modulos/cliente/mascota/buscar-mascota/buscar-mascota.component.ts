@@ -7,8 +7,26 @@ import { MascotaClienteService } from 'src/app/servicios/mascota-cliente.service
   templateUrl: './buscar-mascota.component.html',
   styleUrls: ['./buscar-mascota.component.css']
 })
-export class BuscarMascotaComponent implements OnInit {
 
+export class BuscarMascotaComponent implements OnInit {
+  
+  Id: string = '637d3d803e04ac4ab0d89db1';
+  
+  listadoRegistros: ModeloMascotaCliente[] = [];
+
+  constructor(private mascotaCliente: MascotaClienteService) { }
+
+  ngOnInit(): void {
+    this.ObtenerListadoMascotas();
+  }
+
+  ObtenerListadoMascotas(){
+    this.mascotaCliente.obtenerRegistrosPorUsuarioId(this.Id).subscribe((datos: ModeloMascotaCliente[]) => {
+      this.listadoRegistros = datos;
+    })
+  }
+
+/*
   listadoRegistros: ModeloMascotaCliente[] = [];
 
   constructor(private mascotaCliente: MascotaClienteService) { }
@@ -22,7 +40,7 @@ export class BuscarMascotaComponent implements OnInit {
       this.listadoRegistros = datos;
     })
   }
-
+  */
 }
 
 

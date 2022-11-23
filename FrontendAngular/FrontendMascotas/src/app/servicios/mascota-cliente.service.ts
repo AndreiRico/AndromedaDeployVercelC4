@@ -25,6 +25,10 @@ export class MascotaClienteService {
     return this.http.get<ModeloMascotaCliente>(`${this.url}/mascotas/${id}`);
   }
 
+  obtenerRegistrosPorUsuarioId(id: string): Observable <ModeloMascotaCliente[]> {
+    return this.http.get<ModeloMascotaCliente[]>(`${this.url}/usuarios/${id}/mascotas?filter[include][]=usuario`);
+  }
+
   CrearMascotaCliente(mascota: ModeloMascotaCliente): Observable<ModeloMascotaCliente>{
     return this.http.post<ModeloMascotaCliente>(`${this.url}/mascotas`, mascota, {
       headers: new HttpHeaders({
@@ -44,7 +48,7 @@ export class MascotaClienteService {
   EliminarMascotaCliente(id: string): Observable <any>{
     return this.http.delete(`${this.url}/mascotas/${id}`, {
       headers: new HttpHeaders({
-        'Authorization': 'Bearer ${this.token}'
+        'Authorization': `Bearer ${this.token}`
       })
     })
   }
