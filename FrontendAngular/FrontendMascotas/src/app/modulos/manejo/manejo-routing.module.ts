@@ -19,7 +19,7 @@ const routes: Routes = [
   {
     path: 'crear-contacto',
     component: CrearContactoComponent,
-    canActivate: [ValidadorSesionGuard]
+    //canActivate: [ValidadorSesionGuard]
   },
   {
     path: 'buscar-contacto',
