@@ -9,7 +9,7 @@ import { SeguridadService } from './seguridad.service';
   providedIn: 'root'
 })
 export class SucursalService {
-url = `http://localhost:3000`;
+url = `http://andromeda-deploy-vercel-c4.vercel.app`;
 token: String = '';
 
   constructor(private http: HttpClient, private seguridadServicio: SeguridadService) {

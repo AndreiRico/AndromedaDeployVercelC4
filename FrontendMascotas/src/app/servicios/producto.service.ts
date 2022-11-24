@@ -8,7 +8,7 @@ import { SeguridadService } from './seguridad.service';
   providedIn: 'root'
 })
 export class ProductoService {
-  url = 'http://localhost:3000';
+  url = 'http://andromeda-deploy-vercel-c4.vercel.app';
   token = '';
 
   constructor(private http: HttpClient, private seguridaServicio: SeguridadService) {
